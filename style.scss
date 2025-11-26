@@ -302,6 +302,57 @@ main {
     }
 }
 
+// Latest Posts Section
+.latest-posts {
+    margin-bottom: 40px;
+
+    h2 {
+        margin-bottom: 30px;
+    }
+
+    .posts-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+
+        .post {
+            display: flex;
+            flex-direction: column;
+            width: calc(33.33% - 20px);
+
+            img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                font-size: 2em;
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-size: 1em;
+                line-height: 1.6;
+                margin-bottom: 10px;
+            }
+
+            .post-date {
+                display: inline-block;
+                margin-bottom: 20px;
+                font-size: 0.9em;
+                color: #5d5d5f;
+            }
+
+            .btn {
+                width: 100%;
+                margin-top: auto;
+            }
+        }
+    }
+}
+
 footer {
     background-color: #e9e3db;
     color: #745d4e;

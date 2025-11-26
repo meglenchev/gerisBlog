@@ -252,6 +252,48 @@ main {
   line-height: 1.6;
 }
 
+.latest-posts {
+  margin-bottom: 40px;
+}
+.latest-posts h2 {
+  margin-bottom: 30px;
+}
+.latest-posts .posts-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.latest-posts .posts-container .post {
+  display: flex;
+  flex-direction: column;
+  width: calc(33.33% - 20px);
+}
+.latest-posts .posts-container .post img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+.latest-posts .posts-container .post h3 {
+  font-size: 2em;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.latest-posts .posts-container .post p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.latest-posts .posts-container .post .post-date {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  color: #5d5d5f;
+}
+.latest-posts .posts-container .post .btn {
+  width: 100%;
+  margin-top: auto;
+}
+
 footer {
   background-color: #e9e3db;
   color: #745d4e;

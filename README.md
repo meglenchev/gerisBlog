@@ -8,3 +8,4 @@
 - [x] Create Header Image
 - [x] Create Quick links
 - [x] Create quick author info box
+- [x] Create Latest posts
