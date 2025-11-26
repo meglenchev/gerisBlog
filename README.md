@@ -10,3 +10,4 @@
 - [x] Create quick author info box
 - [x] Create Latest posts
 - [x] Create Upcoming practices
+- [x] Create Post categories
