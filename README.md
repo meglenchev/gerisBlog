@@ -4,4 +4,6 @@
 - [x] Create index.html file
 - [x] Create SCSS style using `EXTENSIONS: Live Sass Compiler`
 - [x] Create Header ( Navigation and Logo)
-- [x] Create Footer
+- [x] Аdding resources for buttons and quick linksFooter
+- [x] Create Header Image
+- [x] Create Quick links

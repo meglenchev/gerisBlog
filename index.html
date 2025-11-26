@@ -7,6 +7,13 @@
     <title>Personal blog page</title>
     <meta name="description" content="Personal blog page about breathing techniques and inspiration.">
 
+    <!-- Google Fonts preconnect and link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="style.css">
 
@@ -39,10 +46,39 @@
         </header>
 
         <main>
+            <article class="header-image">
+                <img src="/images/header-image.jpg" alt="Гергана Стратева" />
+            </article>
+
+            <article class="quick-links">
+                <section>
+                    <img src="/images/praktiki.svg" alt="Предстоящи практики" />
+                    <div>
+                        <h2>Предстоящи практики</h2>
+                        <a href="#" title="виж повече">виж повече</a>
+                    </div>
+                </section>
+                <section>
+                    <img src="/images/novo.svg" alt="Ново в блога" />
+                    <div>
+                        <h2>Ново в блога</h2>
+                        <a href="#" title="виж повече">виж повече</a>
+                    </div>
+                </section>
+                <section>
+                    <img src="/images/author.svg" alt="За авторката" />
+                    <div>
+                        <h2>За авторката</h2>
+                        <a href="#" title="виж повече">виж повече</a>
+                    </div>
+                </section>
+            </article>
+
             <article>
                 <h2>Article Title</h2>
                 <p>This is the main content area of the page, using semantic HTML5 elements like `main`, `article`, and
                     `section`.</p>
+                <a href="#" class="btn" title="Button style">Button style</a>
             </article>
         </main>
 

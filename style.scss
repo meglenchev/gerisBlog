@@ -56,7 +56,6 @@ ol {
     padding: 0;
 }
 
-p,
 h1,
 h2,
 h3,
@@ -64,6 +63,40 @@ h4,
 h5,
 h6 {
     overflow-wrap: break-word;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #a7846e;
+}
+
+p {
+    overflow-wrap: break-word;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+// 7. Create animations/transition for common elements
+article,
+header,
+img,
+section,
+aside,
+a,
+a:hover,
+button,
+button:hover,
+.btn,
+.btn:hover,
+input,
+input:focus,
+textarea,
+textarea:focus {
+    transition: all .3s linear;
+    -o-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
 }
 
 
@@ -72,10 +105,44 @@ h6 {
 //   isolation: isolate;
 // }
 
+// Button styles
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 0 15px;
+    cursor: pointer;
+    border: none;
+    background: #f6f6f6;
+    color: #a7846e;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    line-height: 1;
+
+    &::after {
+        content: '';
+        position: relative;
+        display: inline-block;
+        width: 24px;
+        height: 18px;
+        margin-left: 10px;
+        background-color: #a7846e;
+        -webkit-mask: url(/images/arrow-right.svg) no-repeat center;
+        mask: url(/images/arrow-right.svg) no-repeat center;
+        transform: translateX(0px);
+        transition: transform 0.3s ease;
+    }
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #fff;
     color: #000;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1em;
     line-height: 1.6;
 }
 
@@ -141,6 +208,62 @@ header {
     }
 }
 
+// Main content styles
+main {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+// Quick Links Section
+.quick-links {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+
+    section {
+        display: flex;
+        align-items: center;
+        width: calc(33.33% - 20px);
+        background-color: #f6f6f6;
+
+        img {
+            height: 130px;
+        }
+
+        div {
+            padding: 0 20px;
+        }
+
+        h2 {
+            font-family: "Caveat", cursive;
+            font-optical-sizing: auto;
+            font-size: 1.5em;
+        }
+
+        a {
+            display: inline-flex;
+            justify-content: center;
+            color: #000;
+            line-height: 1;
+
+            &::after {
+                content: '';
+                position: relative;
+                display: inline-block;
+                width: 23px;
+                height: 18px;
+                margin-left: 5px;
+                background-color: #000;
+                -webkit-mask: url(/images/arrow-right.svg) no-repeat center;
+                mask: url(/images/arrow-right.svg) no-repeat center;
+                transform: translateX(0px);
+                transition: transform 0.3s ease;
+            }
+        }
+    }
+}
+
 footer {
     background-color: #e9e3db;
     color: #745d4e;
@@ -182,7 +305,7 @@ footer {
         width: 100%;
         background-color: #c1ac9f;
         color: #fff;
-        
+
         p {
             margin: 0;
             text-transform: uppercase;
@@ -192,6 +315,17 @@ footer {
 
 // Media Queries
 @media screen and (min-device-width: 1280px) {
+    .btn {
+        &:hover {
+            background-color: #F4F3F0;
+
+            &::after {
+                transform: translateX(5px);
+                transition: transform 0.3s ease;
+            }
+        }
+    }
+
     header {
         padding-bottom: 40px;
 
@@ -202,6 +336,24 @@ footer {
             .content {
                 width: 1280px;
                 margin: 0 auto;
+            }
+        }
+    }
+
+    .quick-links {
+        section {
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+            &:hover {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transform: translateY(-5px);
+            }
+
+            a:hover {
+                &::after {
+                    transform: translateX(5px);
+                    transition: transform 0.3s ease;
+                }
             }
         }
     }
