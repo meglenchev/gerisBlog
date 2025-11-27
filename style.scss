@@ -688,6 +688,23 @@ footer {
         }
     }
 
+    .latest-posts {
+        .posts-container {
+            .post {
+                img {
+                    opacity: 0.7;
+                }
+
+                &:hover {
+                    img {
+                        opacity: 1;
+                        transform: translateY(-5px);
+                    }
+                }
+            }
+        }
+    }
+
     footer {
         padding: 60px 0 0 0;
 
