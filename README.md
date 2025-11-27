@@ -12,3 +12,4 @@
 - [x] Create Upcoming practices
 - [x] Create Post categories
 - [x] Create Login form
+- [x] Create Register page
