@@ -85,7 +85,7 @@ h5,
 h6 {
   overflow-wrap: break-word;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 300;
   color: #a7846e;
 }
 
@@ -214,7 +214,7 @@ header nav ul li a {
   text-transform: uppercase;
   color: #a7846e;
   line-height: 1;
-  padding: 0 10px;
+  padding: 0 0.7em;
 }
 header nav ul li a:hover {
   text-decoration: underline;
@@ -238,6 +238,11 @@ header .auth-nav {
   gap: 20px;
 }
 header .auth-nav li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 0.7em;
   text-decoration: none;
   text-transform: uppercase;
   color: #a7846e;
@@ -341,9 +346,9 @@ main {
 }
 
 .about-author {
-  width: 66.66%;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
+  width: 66.66%;
   margin-bottom: 40px;
 }
 .about-author .author-photo {
@@ -353,17 +358,22 @@ main {
 .about-author .author-photo img {
   width: 100%;
   height: auto;
-  margin-bottom: 20px;
-}
-.about-author .author-photo .btn {
-  width: 100%;
 }
 .about-author .author-bio {
+  display: flex;
+  flex-direction: column;
   width: 50%;
   padding: 0 10px;
 }
 .about-author .author-bio h2 {
   margin-bottom: 30px;
+}
+.about-author .author-bio p {
+  margin-bottom: 20px;
+}
+.about-author .author-bio .btn {
+  margin-top: auto;
+  width: 100%;
 }
 
 .post-categories {
@@ -376,6 +386,7 @@ main {
 }
 .post-categories h3 {
   text-transform: none;
+  font-weight: 400;
   color: #745D4E;
   margin-bottom: 30px;
 }
@@ -483,9 +494,9 @@ footer .footer-bottom {
   justify-content: center;
   width: 100%;
   background-color: #c1ac9f;
-  color: #fff;
+  color: #745D4E;
 }
-footer .footer-bottom p {
+footer .footer-bottom a {
   margin: 0;
   text-transform: uppercase;
 }
@@ -493,7 +504,7 @@ footer .footer-bottom p {
 @media screen and (min-device-width: 1280px) {
   h2 {
     font-size: 2.4em;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1;
   }
   h3 {
@@ -534,6 +545,16 @@ footer .footer-bottom p {
     color: #745D4E;
     background-color: #ddd2c5;
   }
+  header .auth-nav {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  header .auth-nav li a:hover {
+    text-decoration: none;
+    color: #745D4E;
+    background-color: #ddd2c5;
+  }
   .quick-links section {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
@@ -553,5 +574,8 @@ footer .footer-bottom p {
   }
   footer .footer-bottom {
     height: 70px;
+  }
+  footer .footer-bottom a:hover {
+    color: #fff;
   }
 }/*# sourceMappingURL=style.css.map */
