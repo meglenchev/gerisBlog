@@ -15,6 +15,7 @@
 - [x] Create Register page
 - [x] Image optimization
 - [x] Create About page
+- [x] Create Edit Author Info
 
 ## 2 Create React Project
 - [x] Install React `npm i vite`

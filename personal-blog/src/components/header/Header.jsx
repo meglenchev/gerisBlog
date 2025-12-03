@@ -27,7 +27,7 @@ export function Header() {
 
                             <li><NavLink to="/blog/create">Добави блог</NavLink></li>
                             <li><NavLink to="/practices/create">Добави практика</NavLink></li>
-                            <li><NavLink to="/about/create">Редактирай автора</NavLink></li>
+                            <li><NavLink to="/about/edit">Редактирай автора</NavLink></li>
                         </ul>
                     </nav>
 
