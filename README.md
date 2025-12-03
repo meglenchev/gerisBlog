@@ -17,6 +17,7 @@
 - [x] Create About page
 - [x] Create Edit Author Info
 - [x] Create Add Blog Page
+- [x] Create Add Practices Page
 
 ## 2 Create React Project
 - [x] Install React `npm i vite`

@@ -5,6 +5,7 @@ import { Home } from './components/home/Home.jsx'
 import { AboutAuthor } from './components/about-author/AboutAuthor.jsx'
 import { EditAuthorInfo } from './components/edit-author-info/EditAuthorInfo.jsx'
 import { CreateBlog } from './components/create-blog/CreateBolg.jsx'
+import { CreatePractices } from './components/create-practices/CreatePractices.jsx'
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route path='/about' element={<AboutAuthor />} />
                     <Route path='/about/edit' element={<EditAuthorInfo />} />
                     <Route path='/blog/create' element={<CreateBlog />} />
+                    <Route path='/practices/create' element={<CreatePractices />} />
                 </Routes>
             </main>
             <Footer />
