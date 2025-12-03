@@ -32,7 +32,7 @@ export function Header() {
                     </nav>
 
                     <ul className="auth-nav">
-                        <li className={showLoginModal ? 'active' : ''} onClick={addUserClickHandler}>Логин</li>
+                        <li className={showLoginModal ? 'active' : ''} onClick={addUserClickHandler}>Вход</li>
                         <li>Изход</li>
                     </ul>
 
