@@ -8,9 +8,9 @@ export function LatestPosts() {
     return (
         <article className="latest-posts">
             <h2>Последни публикации</h2>
-            <div className="posts-container">
+            <div className={data.length === 0 ? 'posts-container center' : 'posts-container'}>
                 {isPanding
-                    ? <h3 className="no-articles" style={{ color: 'red' }}>Зарежда...</h3>
+                    ? <img src="/images/loading_icon.gif" alt="" />
                     : data.length > 0
                         ? (data.map(blog => <Post
                             key={blog._id}
