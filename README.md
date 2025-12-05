@@ -45,5 +45,10 @@
 - [x] Creating endpoints with the links to the server
 - [x] Fetching dynamic blog data on the homepage
 - [x] Fetching dynamic practices data on the homepage
+- [x] Adding initial values ​​to the server
 
-- [] Adding initial values ​​to the server
+## 6. Dynamic App Functionality ( Authorization, Authentication, Logout, Add, Edit, Delete )
+- [x] Create blogs page
+- [] Fetching dynamic blogs data
+- [] Create practices page
+- [] Fetching dynamic practices data
