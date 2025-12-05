@@ -40,15 +40,6 @@ export function CreateBlog() {
                         required></textarea>
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="content">Дата:</label>
-                    <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        required />
-                </div>
-
                 <button type="submit" className="btn btn-register">Създай</button>
             </form>
         </article>

@@ -222,10 +222,12 @@ header .wrap .content {
   display: flex;
   justify-content: space-between;
 }
-header nav ul {
+header nav ul, 
+header .auth-nav {
   display: flex;
 }
-header nav ul li a {
+header nav ul li a, 
+header .auth-nav li a {
   display: flex;
   align-items: center;
   position: relative;
@@ -236,15 +238,18 @@ header nav ul li a {
   line-height: 1;
   padding: 0 0.7em;
 }
-header nav ul li a:hover {
+header nav ul li a:hover, 
+header .auth-nav li a:hover {
   text-decoration: underline;
 }
-header nav ul li a.active:hover {
+header nav ul li a.active:hover, 
+header .auth-nav li a.active:hover {
   cursor: default;
   background-color: transparent;
   color: #a7846e;
 }
-header nav ul li a.active::after {
+header nav ul li a.active::after, 
+header .auth-nav li a.active::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -253,57 +258,7 @@ header nav ul li a.active::after {
   height: 4px;
   background-color: #a7846e;
 }
-header .auth-nav {
-  display: flex;
-  gap: 20px;
-}
-header .auth-nav li {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 0.7em;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #a7846e;
-}
-header .auth-nav li:hover, header .auth-nav li.active {
-  color: #745D4E;
-  background-color: #ddd2c5;
-  transition: all 0.3s linear;
-}
-header .login-modal {
-  display: flex;
-  position: fixed;
-  top: 56px;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 56px);
-  background-color: rgba(0, 0, 0, 0.5);
-}
-header .login-container {
-  display: flex;
-  flex-direction: column;
-  width: 380px;
-  position: absolute;
-  right: 0;
-  top: 56px;
-  background-color: #f6f6f6;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-header .login-container::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  right: 20px;
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid #f6f6f6;
-}
+
 header .logo {
   width: 100%;
   max-width: 440px;
@@ -313,6 +268,24 @@ main {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    background-color: #f6f6f6;
+    padding: 2rem;
+    margin: 40px auto;
+}
+
+.login-container h2 {
+  margin-bottom: 30px;
+}
+
+.login-container form {
+  width: 100%;
 }
 
 .register-container,

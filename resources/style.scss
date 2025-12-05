@@ -304,40 +304,6 @@ header {
         }
     }
 
-    .login-modal {
-        display: flex;
-        position: fixed;
-        top: 56px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 56px);
-        background-color: rgba(0, 0, 0, .5);
-    }
-
-    .login-container {
-        display: flex;
-        flex-direction: column;
-        width: 380px;
-        position: absolute;
-        right: 0;
-        top: 56px;
-        background-color: #f6f6f6;
-        padding: 2rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-
-        &::after {
-            content: '';
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 10px solid #f6f6f6;
-        }
-    }
-
     .logo {
         width: 100%;
         max-width: 440px;
@@ -351,9 +317,33 @@ main {
     margin: 0 auto;
 }
 
+.login-container {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    position: absolute;
+    right: 0;
+    top: 56px;
+    background-color: #f6f6f6;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        right: 20px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #f6f6f6;
+    }
+}
+
 .register-container,
 .create-blog-postntainer,
-.edit-blog-postntainer, 
+.edit-blog-postntainer,
 .create-about-author {
     display: flex;
     align-items: stretch;
@@ -377,7 +367,7 @@ main {
 }
 
 .create-blog-postntainer,
-.edit-blog-postntainer, 
+.edit-blog-postntainer,
 .create-about-author {
     img {
         max-width: 40%;

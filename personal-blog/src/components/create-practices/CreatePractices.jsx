@@ -41,7 +41,7 @@ export function CreatePractices() {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="content">Дата:</label>
+                    <label htmlFor="content">Кога ще се проведе практиката:</label>
                     <input
                         type="date"
                         id="date"

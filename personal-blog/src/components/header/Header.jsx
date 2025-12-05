@@ -1,18 +1,6 @@
 import { NavLink } from "react-router";
-import { LoginModal } from "./LoginModal.jsx";
-import { useState } from "react";
 
 export function Header() {
-    const [showLoginModal, setShowLoginModal] = useState(false);
-
-    // Show/Hide Login User Modal
-    const addUserClickHandler = () => {
-        setShowLoginModal(true);
-    }
-
-    const closeUserModalHandler = () => {
-        setShowLoginModal(false);
-    }
 
     return (
         <header>
@@ -32,12 +20,10 @@ export function Header() {
                     </nav>
 
                     <ul className="auth-nav">
-                        <li className={showLoginModal ? 'active' : ''} onClick={addUserClickHandler}>Вход</li>
+                        <li><NavLink to="/user/login">Вход</NavLink></li>
                         <li><NavLink to="/user/register">Регистрация</NavLink></li>
-                        <li>Изход</li>
+                        <li><NavLink to="/user/logout">Изход</NavLink></li>
                     </ul>
-
-                    {showLoginModal && <LoginModal onClose={closeUserModalHandler} setShowLoginModal={setShowLoginModal} />}
                 </div>
             </div>
             <h1><a href="/"><img src="/images/strateva.png" className="logo" alt="Стратева" /></a></h1>
