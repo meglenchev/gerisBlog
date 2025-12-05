@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { LatestPosts } from "./latest-posts/LatestPosts.jsx";
+import { LatestPractices } from "./latest-practices/LatestPractices.jsx";
 
 export function Home() {
     return (
@@ -63,46 +64,8 @@ export function Home() {
                     </ul>
                 </section>
             </article>
-            {/* Last Blog Posts */}
             <LatestPosts />
-
-            <article className="latest-posts upcoming-practices">
-                <h2>Предстоящи практики</h2>
-                <div className="posts-container">
-                    <section className="post">
-                        <img src="/images/upcoming-practices-1.jpg" alt="Post 1" />
-                         <Link to="/practices" className="btn" title="Научи повече">Научи повече</Link>
-                        <h3>Естетика танци и ритмично дишане</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nobis in praesentium
-                            hic
-                            aliquid possimus iste dolore maxime ducimus a? Praesentium eaque sed et vitae. Nulla
-                            excepturi deleniti totam beatae voluptatibus! Commodi odit, fugiat architecto iste non
-                            minima sequi cupiditate?</p>
-                    </section>
-                    <section className="post">
-                        <img src="/images/upcoming-practices-2.jpg" alt="Post 2" />
-                        <Link to="/practices" className="btn" title="Научи повече">Научи повече</Link>
-                        <h3>Естетика танци и ритмично дишане</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores alias voluptatem saepe
-                            aliquam iste, labore at molestias odio excepturi corporis rem exercitationem pariatur
-                            obcaecati consequatur aut reprehenderit rerum quo deleniti eos. Provident, dolore
-                            excepturi
-                            quisquam eos recusandae veritatis non ipsum.</p>
-                    </section>
-                    <section className="post">
-                        <img src="/images/upcoming-practices-3.jpg" alt="Post 3" />
-                        <Link to="/practices" className="btn" title="Научи повече">Научи повече</Link>
-                        <h3>Естетика танци и ритмично дишане</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt fuga beatae quaerat ea.
-                            Alias
-                            veniam quibusdam deleniti recusandae magnam optio, nisi soluta. Vel, voluptas
-                            consectetur.
-                            Pariatur, sunt rerum earum aut expedita incidunt nemo porro aspernatur fugiat dolorum
-                            quam
-                            quidem dolor!</p>
-                    </section>
-                </div>
-            </article>
+            <LatestPractices />
         </main>
     )
 }

@@ -30,12 +30,12 @@
 - [x] Add NaviLink (Dynamic Navigation) to App
 
 ## 4. Adding login, registration and functionality
-- [x] Show and hide the login modal
 - [x] Create useForm Hook
 - [x] Using useForm in login
 - [x] Sending login fetch to server
 - [x] Create useRequest Hook
 - [x] Sending Register request to server
+- [x] Using a request hook for the login form
 
 ## 5. Server change
 - [x] Delete the server
@@ -44,5 +44,6 @@
 - [x] Create useFetch hook form 
 - [x] Creating endpoints with the links to the server
 - [x] Fetching dynamic blog data on the homepage
+- [x] Fetching dynamic practices data on the homepage
 
 - [] Adding initial values ​​to the server
