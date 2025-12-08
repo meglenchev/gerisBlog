@@ -19,10 +19,17 @@ export function UserProvider({ children }) {
 
     const { request } = useRequest();
 
-    const onRegister = async (email, password) => {
-        const result = await request(endPoints.register, 'POST', { email, password })
+    const onRegister = async (username, email, password) => {
+        const result = await request(endPoints.register, 'POST', { username, email, password })
 
-        setUser(result)
+        const loggedUser = {
+            email: result.email, 
+            name: result.username, 
+            _id: result._id, 
+            accessToken: result.accessToken
+        }
+
+        setUser(loggedUser)
     };
 
     const onLogin = async (email, password) => {
@@ -30,7 +37,7 @@ export function UserProvider({ children }) {
 
         const loggedUser = {
             email: result.email, 
-            name: result.name, 
+            name: result.username, 
             _id: result._id, 
             accessToken: result.accessToken
         }

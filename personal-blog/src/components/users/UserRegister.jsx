@@ -1,6 +1,7 @@
-import { endPoints } from "../../utils/endpoints.js";
+import { useContext } from "react";
 import { useForm } from "../hooks/useForm.js"
-import { useRequest } from "../hooks/useRequest.js";
+import UserContext from "../../context/UserContext.jsx";
+import { useNavigate } from "react-router";
 
 let initialRegisterData = {
     username: '',
@@ -38,7 +39,8 @@ function validate(values) {
 }
 
 export function UserRegister() {
-    const { request } = useRequest();
+    const { onRegister } = useContext(UserContext);
+    const navigate = useNavigate();
 
     const submitUserRegisterData = async (formValues) => {
 
@@ -48,7 +50,12 @@ export function UserRegister() {
             return alert(Object.values(validate(formValues)).at(0));
         }
 
-        const response = await request(endPoints.register, 'POST', {username, email, password});
+        try {
+            onRegister(username, email, password);
+            navigate('/');
+        } catch (err) {
+            alert(err.message);
+        }
     }
 
     const { inputPropertiesRegister, formAction } = useForm(submitUserRegisterData, initialRegisterData);
