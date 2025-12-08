@@ -47,9 +47,12 @@
 - [x] Fetching dynamic practices data on the homepage
 - [x] Adding initial values ​​to the server
 
-## 6. Dynamic App Functionality ( Authorization, Authentication, Logout, Add, Edit, Delete )
+## 6. Dynamic App Functionality ( Authorization, Authentication, Login, Register, Logout, Add, Edit, Delete )
 - [x] Create blogs page
 - [x] Fetching dynamic blogs data
 - [x] Fetching blog details data
+- [x] Creating a user context
+- [] Create a new hook to save user information
+- [] Moving user state up the tree
 - [] Create practices page
 - [] Fetching dynamic practices data
