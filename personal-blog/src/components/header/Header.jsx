@@ -5,10 +5,8 @@ import UserContext from "../../context/UserContext.jsx";
 export function Header() {
     const { isAuthenticated } = useContext(UserContext);
 
-    console.log(isAuthenticated)
-
     return (
-        <header>
+        <header className={isAuthenticated ? 'header logedin' : 'header'}>
             <div className="wrap">
                 <div className="content">
                     <nav>

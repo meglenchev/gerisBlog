@@ -10,8 +10,13 @@ import { UserRegister } from './components/users/UserRegister.jsx'
 import { UserLogin } from './components/users/UserLogin.jsx'
 import { Blogs } from './components/blogs/Blogs.jsx'
 import { PostDetails } from './components/blogs/PostDetails.jsx'
+import { RouteGuard } from './components/routeGuard/RouteGuard.jsx'
+import { useContext } from 'react'
+import UserContext from './context/UserContext.jsx'
 
 function App() {
+    const { isAuthenticated } = useContext(UserContext);
+
     return (
         <>
             <Header />
@@ -19,13 +24,17 @@ function App() {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/about' element={<AboutAuthor />} />
-                    <Route path='/about/edit' element={<EditAuthorInfo />} />
                     <Route path='/blogs' element={<Blogs />} />
                     <Route path="/blogs/:blogId/details" element={<PostDetails />} />
-                    <Route path='/blogs/create' element={<CreateBlog />} />
-                    <Route path='/practices/create' element={<CreatePractices />} />
+
                     <Route path='/user/register' element={<UserRegister />} />
                     <Route path='/user/login' element={<UserLogin />} />
+
+                    <Route element={<RouteGuard isAuthenticated={isAuthenticated} />}>
+                        <Route path='/about/edit' element={<EditAuthorInfo />} />
+                        <Route path='/blogs/create' element={<CreateBlog />} />
+                        <Route path='/practices/create' element={<CreatePractices />} />
+                    </Route>
                 </Routes>
             </main>
             <Footer />
