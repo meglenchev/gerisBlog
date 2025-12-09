@@ -25,8 +25,16 @@ export function PostDetails() {
                         <p className="post-date">Публикувано на {date}</p>
                         <p>{data.presentation}</p>
                         <p>{data.content}</p>
-
-                        {isAuthenticated && <Link to={`/blogs/${blogId}/edit`} className="btn btn-edit" title="Редактирай публикацията">Редактирай публикацията</Link>}
+                        <div className="post-footer">
+                            <Link to={`/blogs`} className="btn btn-back" title="Назад">Назад</Link>
+                            {isAuthenticated && data._ownerId === user._id
+                                ? <div className="buttons">
+                                    <Link to={`/blogs/${blogId}/edit`} className="btn btn-edit" title="Редактирай публикацията">Редактирай</Link>
+                                    <Link to={`/blogs/${blogId}/delete`} className="btn btn-delete" title="Изтрий публикацията">Изтрий</Link>
+                                </div>
+                                : ''
+                            }
+                        </div>
                     </>)
                     : <p className="no-articles">Възникна грешка. Моля опитайте по-късно!</p>
             }

@@ -161,12 +161,17 @@ textarea:focus {
     -webkit-transition: all 0.3s linear;
 }
 
+.buttons {
+    display: flex;
+    margin-left: auto;
+}
+
 .btn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     height: 60px;
-    padding: 0 15px;
+    padding: 0 20px;
     cursor: pointer;
     border: none;
     background: #f6f6f6;
@@ -177,7 +182,8 @@ textarea:focus {
     line-height: 1;
 }
 
-.btn::after {
+.btn::after,
+.btn-back::before {
     content: "";
     position: relative;
     display: inline-block;
@@ -215,6 +221,24 @@ textarea:focus {
 
 .btn.btn-edit::after {
     background-color: #fff;
+}
+
+.btn-delete {
+    background-color: #000;
+    color: #F6F6F6;
+}
+
+.btn-delete::after {
+    content: none;
+}
+
+.btn-back::after {
+    content: none;
+}
+
+.btn-back::before {
+    margin: 0;
+    transform: rotate(-180deg);
 }
 
 body {
@@ -547,7 +571,7 @@ main {
 .latest-posts .posts-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: stretch;
 }
 
@@ -645,6 +669,11 @@ main {
     margin-bottom: 20px;
 }
 
+.post-footer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 footer {
     background-color: #e9e3db;
     color: #745d4e;
@@ -711,6 +740,11 @@ footer .footer-bottom a {
 
     .btn:hover::after {
         transform: translateX(5px);
+        transition: transform 0.3s ease;
+    }
+
+    .btn-back:hover::before {
+        transform: rotate(-180deg) translateX(5px);
         transition: transform 0.3s ease;
     }
 
@@ -789,6 +823,11 @@ footer .footer-bottom a {
     .quick-links section a:hover::after {
         transform: translateX(5px);
         transition: transform 0.3s ease;
+    }
+
+    .latest-posts .posts-container .post:nth-child(3n - 1) {
+        margin-left: 30px;
+        margin-right: 30px;
     }
 
     .latest-posts .posts-container .post img {

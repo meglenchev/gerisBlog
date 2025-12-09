@@ -1344,7 +1344,7 @@
                 "_createdOn": 1617194350000
             },
             "7b9a2c4f-1d5e-4b6c-8a3d-2f1e0g3h4i5j": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "title": "За Времето",
                 "genre": "Knowledge",
                 "imageUrl": "https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/time.jpg?alt=media&token=f8a87db5-71f0-4faa-a7a9-a3aa6a91034b",
@@ -1373,7 +1373,7 @@
         },
         practices: {
             "9f8e7d6c-5b3a-4c9d-7e0f-1g2h1i8j2k3l": {
-                "_ownerId": "983af8a7-20cf-4d6b-9194-5ea61d699edf",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "title": "Естетика танци и ритмично дишане",
                 "imageUrl": "https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/practices-01.png?alt=media&token=adf32156-8b41-4c2d-a4b0-a5a6017ca7ce",
                 "presentation": "Стандартният отрязък от Lorem Ipsum, използван от 1500 г. насам, е поместен по-долу за тези, които се интересуват. Секции 1.10.32 и 1.10.33 от de Finibus Bonorum et Malorum на Цицерон също са поместени в оригиналния им формат, заедно с превода им на английски език, направен от H. Rackham през 1914г.",
@@ -1381,7 +1381,7 @@
                 "_createdOn": 1764848403724
             }, 
             "3d4a1f7g-7g8k-9j0u-1l2t-3l4o1p6q9r8s": {
-                "_ownerId": "983af8a7-20cf-4d6b-9194-5ea61d699edf",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "title": "Ритмично дишане",
                 "imageUrl": "https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/practices-02.png?alt=media&token=0dc8ff4e-d596-4858-bf6b-96fc2021337b",
                 "presentation": "Lorem Ipsum е елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви и ги разбърква, за да напечата с тях книга с примерни шрифтове. Този начин не само е оцелял повече от 5 века, но е навлязъл и в публикуването на електронни издания като е запазен почти без промяна.",

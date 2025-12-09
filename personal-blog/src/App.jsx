@@ -4,11 +4,11 @@ import { Header } from './components/header/Header.jsx'
 import { Home } from './components/home/Home.jsx'
 import { AboutAuthor } from './components/about-author/AboutAuthor.jsx'
 import { EditAuthorInfo } from './components/edit-author-info/EditAuthorInfo.jsx'
-import { CreateBlog } from './components/create-blog/CreateBolg.jsx'
 import { CreatePractices } from './components/create-practices/CreatePractices.jsx'
 import { UserRegister } from './components/users/UserRegister.jsx'
 import { UserLogin } from './components/users/UserLogin.jsx'
 import { Blogs } from './components/blogs/Blogs.jsx'
+import { BlogsCreate } from './components/blogs-create/BolgsCreate.jsx'
 import { PostDetails } from './components/blogs/PostDetails.jsx'
 import { RouteGuard } from './components/routeGuard/RouteGuard.jsx'
 import { useContext } from 'react'
@@ -32,7 +32,7 @@ function App() {
 
                     <Route element={<RouteGuard isAuthenticated={isAuthenticated} />}>
                         <Route path='/about/edit' element={<EditAuthorInfo />} />
-                        <Route path='/blogs/create' element={<CreateBlog />} />
+                        <Route path='/blogs/create' element={<BlogsCreate />} />
                         <Route path='/practices/create' element={<CreatePractices />} />
                     </Route>
                 </Routes>

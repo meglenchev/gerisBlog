@@ -27,7 +27,7 @@ function validate(values) {
     return errors;
 }
 
-export function CreateBlog() {
+export function BlogsCreate() {
     const { request } = useRequest();
     const navigate = useNavigate();
     const [isPanding, setIsPanding] = useState(false);
