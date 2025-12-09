@@ -4,7 +4,7 @@ import { Header } from './components/header/Header.jsx'
 import { Home } from './components/home/Home.jsx'
 import { AboutAuthor } from './components/about-author/AboutAuthor.jsx'
 import { EditAuthorInfo } from './components/edit-author-info/EditAuthorInfo.jsx'
-import { CreatePractices } from './components/create-practices/CreatePractices.jsx'
+import { PracticesCreate } from './components/practices-create/PracticesCreate.jsx'
 import { UserRegister } from './components/users/UserRegister.jsx'
 import { UserLogin } from './components/users/UserLogin.jsx'
 import { Blogs } from './components/blogs/Blogs.jsx'
@@ -40,7 +40,7 @@ function App() {
                         <Route path='/about/edit' element={<EditAuthorInfo />} />
                         <Route path='/blogs/create' element={<BlogsCreate />} />
                         <Route path='/blogs/:blogId/edit' element={<BlogsEdit />} />
-                        <Route path='/practices/create' element={<CreatePractices />} />
+                        <Route path='/practices/create' element={<PracticesCreate />} />
                     </Route>
                 </Routes>
             </main>

@@ -10,5 +10,6 @@ export const endPoints = {
     postDetails: (blogId) => `/data/blogs/${blogId}`,
     allPractices: '/data/practices?sortBy=_createdOn%20desc',
     latestPractices: '/data/practices?sortBy=_createdOn%20desc&pageSize=3',
+    postPractices: '/data/practices',
     practiceDetails: (practicesId) => `/data/practices/${practicesId}`,
 }
