@@ -1,9 +1,9 @@
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { useFetch } from "../hooks/useFetch.js";
 import { endPoints } from "../../utils/endpoints.js";
-import { useDate } from "../hooks/useDate.js";
 import { useContext } from "react";
 import UserContext from "../../context/UserContext.jsx";
+import { useRequest } from "../hooks/useRequest.js";
 
 export function PracticeDetails() {
     const { user, isAuthenticated } = useContext(UserContext);
@@ -11,10 +11,25 @@ export function PracticeDetails() {
 
     const { data, isPending } = useFetch(endPoints.practiceDetails(practiceId), {}, practiceId);
 
-    const date = useDate(data._createdOn);
+    const { request } = useRequest();
+    const navigate = useNavigate();
 
     const deletePracticeHandler = async (e) => {
         e.preventDefault();
+
+        const isConfirm = confirm(`Сигурни ли сте, че искате да изтриете тази практика ${data.title}?`);
+
+        if (!isConfirm) {
+            return;
+        }
+
+        try {
+            await request(endPoints.practiceDetails(practiceId), 'DELETE');
+
+            navigate('/practices');
+        } catch (err) {
+            alert(`Неуспешно изтриване на практика: ${err.message}`);
+        }
     }
 
     return (
@@ -24,12 +39,12 @@ export function PracticeDetails() {
                 : Object.keys(data).length > 0
                     ? (<>
                         <img src={data.imageUrl} alt={data.title} />
-                        <p className="post-date practice-date">Практиката ще се проведе на {date}</p>
+                        <p className="post-date practice-date">Практиката ще се проведе на {data.date}</p>
                         <h2>{data.title}</h2>
                         <p>{data.presentation}</p>
                         <p>{data.content}</p>
                         <div className="post-footer">
-                            <Link to={`/blogs`} className="btn btn-back" title="Назад">Назад</Link>
+                            <Link to={`/practices`} className="btn btn-back" title="Назад">Назад</Link>
                             {isAuthenticated && data._ownerId === user._id
                                 ? <div className="buttons">
                                     <Link to={`/practices/${practiceId}/edit`} className="btn btn-edit" title="Редактирай практика">Редактирай</Link>

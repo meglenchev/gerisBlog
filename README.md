@@ -66,3 +66,4 @@
 - [x] Fetching dynamic practices data
 - [x] Fetching practice details data
 - [x] Add post practice details data functionality
+- [x] Delete practice functionality
