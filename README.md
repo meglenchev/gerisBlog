@@ -62,3 +62,6 @@
 - [x] Create blog post edit
 - [x] Add blog post edit functionality
 - [x] Delete blog post functionality
+- [x] Create practices page
+- [x] Fetching dynamic practices data
+- [] Fetching practice details data

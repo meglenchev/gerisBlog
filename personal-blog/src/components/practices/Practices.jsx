@@ -1,10 +1,9 @@
-import { useFetch } from "../../hooks/useFetch.js";
-import { endPoints } from "../../../utils/endpoints.js";
-import { Practice } from "../../practices/Practice.jsx";
+import { endPoints } from "../../utils/endpoints.js";
+import { useFetch } from "../hooks/useFetch.js";
+import { Practice } from "./Practice.jsx";
 
-export function LatestPractices() {
-    const { data, isPending } = useFetch(endPoints.latestPractices, []);
-
+export function Practices() {
+    const { data, isPending } = useFetch(endPoints.allPractices, []);
     return (
         <article className="latest-posts upcoming-practices">
             <h2>Предстоящи практики</h2>

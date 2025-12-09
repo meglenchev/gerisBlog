@@ -14,6 +14,7 @@ import { RouteGuard } from './components/routeGuard/RouteGuard.jsx'
 import { useContext } from 'react'
 import UserContext from './context/UserContext.jsx'
 import { BlogsEdit } from './components/blogs-edit/BlogsEdit.jsx'
+import { Practices } from './components/practices/Practices.jsx'
 
 function App() {
     const { isAuthenticated } = useContext(UserContext);
@@ -23,13 +24,15 @@ function App() {
             <Header />
             <main>
                 <Routes>
+                    <Route path='/user/register' element={<UserRegister />} />
+                    <Route path='/user/login' element={<UserLogin />} />
+
                     <Route path='/' element={<Home />} />
                     <Route path='/about' element={<AboutAuthor />} />
                     <Route path='/blogs' element={<Blogs />} />
                     <Route path="/blogs/:blogId/details" element={<PostDetails />} />
 
-                    <Route path='/user/register' element={<UserRegister />} />
-                    <Route path='/user/login' element={<UserLogin />} />
+                    <Route path='/practices' element={<Practices />} />
 
                     <Route element={<RouteGuard isAuthenticated={isAuthenticated} />}>
                         <Route path='/about/edit' element={<EditAuthorInfo />} />
