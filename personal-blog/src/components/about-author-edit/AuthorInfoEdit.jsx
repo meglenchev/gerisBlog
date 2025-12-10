@@ -1,4 +1,4 @@
-import { endPoints, BASE_URL } from "../../utils/endpoints.js";
+import { endPoints } from "../../utils/endpoints.js";
 import { useEffect } from "react";
 import { useForm } from "../hooks/useForm.js";
 import { useRequest } from "../hooks/useRequest.js";
@@ -39,10 +39,9 @@ function validate(values) {
 }
 
 export function AuthorInfoEdit() {
-    const url = `${BASE_URL}${endPoints.authorInfo}`;
     const { request } = useRequest();
     const navigate = useNavigate();
-
+    
     const submitEditHandler = async (formValues) => {
         const errors = validate(formValues);
 
@@ -63,30 +62,20 @@ export function AuthorInfoEdit() {
 
     useEffect(() => {
         const abortController = new AbortController();
-
-        (async () => {
-            try {
-                const res = await fetch(url, { signal: abortController.signal });
-
-                if (!res.ok) {
-                    throw new Error(`Техническа грешка! статус: ${res.status}`);
-                }
-
-                const authorData = await res.json();
-
-                setFormValues(authorData);
-
-            } catch (err) {
+        request(endPoints.authorInfo, 'GET', null, abortController.signal)
+            .then(result => {
+                setFormValues(result);
+            })
+            .catch(err => {
                 if (err.name !== 'AbortError') {
                     alert(`Неуспешно зареждане на информацията: ${err.message}`);
                 }
-            }
-        })();
+            })
 
         return () => {
             abortController.abort();
         }
-    }, [url, setFormValues])
+    }, [request, setFormValues]);
 
     return (
         <article className="create-about-author">

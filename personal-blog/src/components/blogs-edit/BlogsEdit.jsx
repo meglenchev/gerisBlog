@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router"
-import { BASE_URL, endPoints } from "../../utils/endpoints.js";
+import { endPoints } from "../../utils/endpoints.js";
 import { useForm } from "../hooks/useForm.js";
 import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest.js";
