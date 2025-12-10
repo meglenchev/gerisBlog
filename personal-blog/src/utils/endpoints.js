@@ -13,5 +13,5 @@ export const endPoints = {
     allPractices: '/data/practices?sortBy=_createdOn%20desc',
     latestPractices: '/data/practices?sortBy=_createdOn%20desc&pageSize=3',
     postPractices: '/data/practices',
-    practiceDetails: (practicesId) => `/data/practices/${practicesId}`,
+    practiceDetails: (practiceId) => `/data/practices/${practiceId}`,
 }

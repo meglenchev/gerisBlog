@@ -1,14 +1,16 @@
-import { useNavigate, useParams } from "react-router"
+import { useNavigate, useParams } from "react-router";
+import { useRequest } from "../hooks/useRequest.js";
+import { useState } from "react";
 import { endPoints } from "../../utils/endpoints.js";
 import { useForm } from "../hooks/useForm.js";
-import { useEffect, useState } from "react";
-import { useRequest } from "../hooks/useRequest.js";
+import { useEffect } from "react";
 
-const initialBlogValues = {
+const initialPracticeValues = {
     title: '',
     imageUrl: '',
     presentation: '',
-    content: ''
+    content: '',
+    date: ''
 }
 
 function validate(values) {
@@ -30,11 +32,15 @@ function validate(values) {
         errors['content'] = 'Съдържанието е задължително!';
     }
 
+    if (!values.date) {
+        errors['date'] = 'Датата е задължителна!';
+    }
+
     return errors;
 }
 
-export function BlogsEdit() {
-    const { blogId } = useParams();
+export function PracticesEdit() {
+    const { practiceId } = useParams();
     const { request } = useRequest();
     const navigate = useNavigate();
     const [isPending, setIsPending] = useState(false);
@@ -49,11 +55,11 @@ export function BlogsEdit() {
         setIsPending(true);
 
         try {
-            await request(endPoints.blogDetails(blogId), 'PUT', formValues);
+            await request(endPoints.practiceDetails(practiceId), 'PUT', formValues);
 
             setIsPending(false);
 
-            navigate(`/blogs/${blogId}/details`);
+            navigate(`/practices/${practiceId}/details`);
         } catch (err) {
             setIsPending(false);
 
@@ -61,13 +67,14 @@ export function BlogsEdit() {
         }
     }
 
-    const { inputPropertiesRegister, formAction, setFormValues } = useForm(submitEditHandler, initialBlogValues);
+    const { inputPropertiesRegister, formAction, setFormValues } = useForm(submitEditHandler, initialPracticeValues);
 
     useEffect(() => {
         const abortController = new AbortController();
-        
-        request(endPoints.blogDetails(blogId), 'GET', null, abortController.signal)
+
+        request(endPoints.practiceDetails(practiceId), 'GET', null, abortController.signal)
             .then(result => {
+                console.log(result)
                 setFormValues(result);
             })
             .catch(err => {
@@ -79,13 +86,13 @@ export function BlogsEdit() {
         return () => {
             abortController.abort();
         }
-    }, [request, blogId, setFormValues]);
+    }, [request, practiceId, setFormValues]);
 
     return (
         <article className="create-blog-post-container">
-            <img src="/images/create-blog-post-img.jpg" />
+            <img src="/images/create-blog-post-img.jpg" alt="" />
             <form action={formAction}>
-                <h2>Редактирай публикацията</h2>
+                <h2>Добави практика</h2>
                 <div className="form-group">
                     <label htmlFor="title">Заглавие:</label>
                     <input
@@ -109,7 +116,7 @@ export function BlogsEdit() {
                     <textarea
                         id="presentation"
                         {...inputPropertiesRegister('presentation')}
-                        rows="3"
+                        rows="5"
                     ></textarea>
                 </div>
 
@@ -118,9 +125,19 @@ export function BlogsEdit() {
                     <textarea
                         id="content"
                         {...inputPropertiesRegister('content')}
-                        rows="8"
+                        rows="10"
                     ></textarea>
                 </div>
+
+                <div className="form-group">
+                    <label htmlFor="content">Кога ще се проведе практиката:</label>
+                    <input
+                        type="date"
+                        id="date"
+                        {...inputPropertiesRegister('date')}
+                    />
+                </div>
+
                 {isPending
                     ? <div className="loader"><img src="/images/loading.svg" alt="Зареждане" /></div>
                     : <button type="submit" className="btn btn-register">Редактирай</button>

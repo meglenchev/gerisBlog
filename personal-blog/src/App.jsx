@@ -16,6 +16,7 @@ import UserContext from './context/UserContext.jsx'
 import { BlogsEdit } from './components/blogs-edit/BlogsEdit.jsx'
 import { Practices } from './components/practices/Practices.jsx'
 import { PracticeDetails } from './components/practices/PracticeDetails.jsx'
+import { PracticesEdit } from './components/practices-edit/PracticesEdit.jsx'
 
 function App() {
     const { isAuthenticated } = useContext(UserContext);
@@ -41,6 +42,7 @@ function App() {
                         <Route path='/blogs/create' element={<BlogsCreate />} />
                         <Route path='/blogs/:blogId/edit' element={<BlogsEdit />} />
                         <Route path='/practices/create' element={<PracticesCreate />} />
+                        <Route path='/practices/:practiceId/edit' element={<PracticesEdit />} />
                     </Route>
                 </Routes>
             </main>

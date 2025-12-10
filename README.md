@@ -70,3 +70,5 @@
 - [x] Back button functionality
 - [x] About author get dynamic data
 - [x] Edit author info functionality
+- [x] Create edit practices page
+- [x] Add edit practices functionality
