@@ -77,7 +77,9 @@ export function EditAuthorInfo() {
                 setFormValues(authorData);
 
             } catch (err) {
-                throw new Error(err.message);
+                if (err.name !== 'AbortError') {
+                    alert(`Неуспешно зареждане на информацията: ${err.message}`);
+                }
             }
         })();
 

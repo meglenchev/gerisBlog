@@ -20,7 +20,9 @@ export function useFetch(url, iniinitialValue, postId) {
                 setData(result)
             })
             .catch(err => {
-                throw new Error(err);
+                if (err.name !== 'AbortError') {
+                    throw new Error(err);
+                }
             })
             .finally(() => {
                 setIsPending(false)
