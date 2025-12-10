@@ -38,7 +38,7 @@ function validate(values) {
     return errors;
 }
 
-export function EditAuthorInfo() {
+export function AuthorInfoEdit() {
     const url = `${BASE_URL}${endPoints.authorInfo}`;
     const { request } = useRequest();
     const navigate = useNavigate();

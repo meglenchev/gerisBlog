@@ -3,7 +3,7 @@ import { Footer } from './components/footer/Footer.jsx'
 import { Header } from './components/header/Header.jsx'
 import { Home } from './components/home/Home.jsx'
 import { AboutAuthor } from './components/about-author/AboutAuthor.jsx'
-import { EditAuthorInfo } from './components/about-author-edit/EditAuthorInfo.jsx'
+import { AuthorInfoEdit } from './components/about-author-edit/AuthorInfoEdit.jsx'
 import { PracticesCreate } from './components/practices-create/PracticesCreate.jsx'
 import { UserRegister } from './components/users/UserRegister.jsx'
 import { UserLogin } from './components/users/UserLogin.jsx'
@@ -37,7 +37,7 @@ function App() {
                     <Route path='/practices/:practiceId/details' element={<PracticeDetails />} />
 
                     <Route element={<RouteGuard isAuthenticated={isAuthenticated} />}>
-                        <Route path='/about/edit' element={<EditAuthorInfo />} />
+                        <Route path='/about/edit' element={<AuthorInfoEdit />} />
                         <Route path='/blogs/create' element={<BlogsCreate />} />
                         <Route path='/blogs/:blogId/edit' element={<BlogsEdit />} />
                         <Route path='/practices/create' element={<PracticesCreate />} />
