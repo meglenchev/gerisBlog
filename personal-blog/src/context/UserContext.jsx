@@ -8,10 +8,12 @@ const UserContext = createContext({
     user: {
         email: '',
         _id: '',
-        accessToken: ''
+        accessToken: '',
+        username: ''
     },
     onRegister() { },
     onLogin() { },
+    onLogout() { },
 });
 
 export function UserProvider({ children }) {
@@ -23,9 +25,9 @@ export function UserProvider({ children }) {
         const result = await request(endPoints.register, 'POST', { username, email, password })
 
         const loggedUser = {
-            email: result.email, 
-            name: result.username, 
-            _id: result._id, 
+            email: result.email,
+            username: result.username,
+            _id: result._id,
             accessToken: result.accessToken
         }
 
@@ -36,13 +38,25 @@ export function UserProvider({ children }) {
         const result = await request(endPoints.login, 'POST', loginData);
 
         const loggedUser = {
-            email: result.email, 
-            name: result.username, 
-            _id: result._id, 
+            email: result.email,
+            username: result.username,
+            _id: result._id,
             accessToken: result.accessToken
         }
 
         setUser(loggedUser);
+    };
+
+    const onLogout = async () => {
+        try {
+            await request(endPoints.logout, 'POST', null);
+        } catch (err) {
+            if (err.name !== 'AbortError') {
+                console.error("Заявката за излизане не бе успешна:", err);
+            }
+        } finally {
+            setUser(null);
+        }
     };
 
     const userContextValues = {
@@ -50,6 +64,7 @@ export function UserProvider({ children }) {
         isAuthenticated: !!user?.accessToken,
         onRegister,
         onLogin,
+        onLogout
     };
 
     return (

@@ -72,3 +72,4 @@
 - [x] Edit author info functionality
 - [x] Create edit practices page
 - [x] Add edit practices functionality
+- [x] Add Logout functionality

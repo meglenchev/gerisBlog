@@ -23,7 +23,7 @@ export function useRequest() {
         const res = await fetch(`${BASE_URL}${url}`, options);
 
         if (!res.ok) {
-            throw new Error(res.statusText || `Неуспешна заявката със статус ${res.status}`);
+            throw new Error(res.statusText || `Неуспешна заявка със статус ${res.status}`);
         }
 
         if (res.status === 204) {
