@@ -49,7 +49,7 @@ export function BlogsEdit() {
         setIsPending(true);
 
         try {
-            await request(endPoints.postDetails(blogId), 'PUT', formValues);
+            await request(endPoints.blogDetails(blogId), 'PUT', formValues);
 
             setIsPending(false);
 
@@ -68,7 +68,7 @@ export function BlogsEdit() {
 
         (async () => {
             try {
-                const res = await fetch(`${BASE_URL}${endPoints.postDetails(blogId)}`, { signal: abortController.signal });
+                const res = await fetch(`${BASE_URL}${endPoints.blogDetails(blogId)}`, { signal: abortController.signal });
 
                 if (!res.ok) {
                     throw new Error(`Техническа грешка! статус: ${res.status}`);

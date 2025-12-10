@@ -1,6 +1,6 @@
 import { endPoints } from "../../utils/endpoints.js"
 import { useFetch } from "../hooks/useFetch.js"
-import { Post } from "./Post.jsx";
+import { Blog } from "./Blog.jsx";
 
 export function Blogs() {
     const { data, isPending } = useFetch(endPoints.allBlogs, []);
@@ -12,7 +12,7 @@ export function Blogs() {
                 {isPending
                     ? <div className="loader"><img src="/images/loading.svg" alt="" /></div>
                     : data.length > 0
-                        ? (data.map(blog => <Post
+                        ? (data.map(blog => <Blog
                             key={blog._id}
                             id={blog._id}
                             imageUrl={blog.imageUrl}

@@ -9,7 +9,7 @@ import { UserRegister } from './components/users/UserRegister.jsx'
 import { UserLogin } from './components/users/UserLogin.jsx'
 import { Blogs } from './components/blogs/Blogs.jsx'
 import { BlogsCreate } from './components/blogs-create/BolgsCreate.jsx'
-import { PostDetails } from './components/blogs/PostDetails.jsx'
+import { BlogDetails } from './components/blogs/BlogDetails.jsx'
 import { RouteGuard } from './components/routeGuard/RouteGuard.jsx'
 import { useContext } from 'react'
 import UserContext from './context/UserContext.jsx'
@@ -31,7 +31,7 @@ function App() {
                     <Route path='/' element={<Home />} />
                     <Route path='/about' element={<AboutAuthor />} />
                     <Route path='/blogs' element={<Blogs />} />
-                    <Route path="/blogs/:blogId/details" element={<PostDetails />} />
+                    <Route path="/blogs/:blogId/details" element={<BlogDetails />} />
 
                     <Route path='/practices' element={<Practices />} />
                     <Route path='/practices/:practiceId/details' element={<PracticeDetails />} />

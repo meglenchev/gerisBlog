@@ -6,12 +6,12 @@ import { useContext } from "react";
 import UserContext from "../../context/UserContext.jsx";
 import { useRequest } from "../hooks/useRequest.js";
 
-export function PostDetails() {
+export function BlogDetails() {
     const { user, isAuthenticated } = useContext(UserContext);
 
     const { blogId } = useParams();
 
-    const { data, isPending } = useFetch(endPoints.postDetails(blogId), {}, blogId);
+    const { data, isPending } = useFetch(endPoints.blogDetails(blogId), {}, blogId);
 
     const date = useDate(data._createdOn);
 
@@ -28,7 +28,7 @@ export function PostDetails() {
         }
 
         try {
-            await request(endPoints.postDetails(blogId), 'DELETE');
+            await request(endPoints.blogDetails(blogId), 'DELETE');
 
             navigate('/blogs');
         } catch (err) {

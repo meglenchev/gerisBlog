@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { useDate } from "../hooks/useDate.js";
 
-export function Post({
+export function Blog({
     id,
     imageUrl,
     title,
