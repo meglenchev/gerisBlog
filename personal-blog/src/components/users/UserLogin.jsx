@@ -49,7 +49,7 @@ export function UserLogin() {
         <>
             <div className="login-container">
                 <h2>Вход</h2>
-                <form action={formAction}>
+                <form onSubmit={formAction}>
                     <div className="form-group">
                         <input
                             type="text"

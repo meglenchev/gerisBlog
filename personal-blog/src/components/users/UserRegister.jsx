@@ -61,7 +61,7 @@ export function UserRegister() {
     return (
         <article className="register-container">
             <img src="/images/register-img.jpg" alt="Регистрация" />
-            <form action={formAction}>
+            <form onSubmit={formAction}>
                 <h2>Регистрация</h2>
                 <div className="form-group">
                     <label htmlFor="username">Потребителско име:</label>

@@ -80,7 +80,7 @@ export function AuthorInfoEdit() {
     return (
         <article className="create-about-author">
             <img src="/images/create-aboutn-info.jpg" alt="About author" />
-            <form action={formAction}>
+            <form onSubmit={formAction}>
                 <h2>Информация за автора</h2>
                 <div className="form-group">
                     <label htmlFor="name">Име</label>

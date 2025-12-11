@@ -173,6 +173,7 @@ export function UserSettings() {
                         accept="image/*"
                     />
                 </div>
+                
                 {isPending
                     ? <div className="loader"><img src="/images/loading.svg" alt="Зареждане" /></div>
                     : <button type="submit" className="btn btn-register">Запази промените</button>

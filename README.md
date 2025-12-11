@@ -80,3 +80,5 @@
 - [x] Retrieving dynamic information about the author of the home page and saving the `settingsId` to the localstore
 - [x] Create edit settings page
 - [x] Getting the right information to edit settings
+- [x] Change the useForm hook to work with file type fields
+- [x] Change how form data is submitted using  `onSubmit`

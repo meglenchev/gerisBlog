@@ -43,7 +43,7 @@ export function BlogsEdit() {
         const errors = validate(formValues);
 
         if (Object.keys(errors).length > 0) {
-            return alert(Object.values(errors).at(0));;
+            return alert(Object.values(errors).at(0));
         }
 
         setIsPending(true);
@@ -84,7 +84,7 @@ export function BlogsEdit() {
     return (
         <article className="create-blog-post-container">
             <img src="/images/create-blog-post-img.jpg" />
-            <form action={formAction}>
+            <form onSubmit={formAction}>
                 <h2>Редактирай публикацията</h2>
                 <div className="form-group">
                     <label htmlFor="title">Заглавие:</label>
