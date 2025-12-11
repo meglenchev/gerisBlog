@@ -73,3 +73,4 @@
 - [x] Create edit practices page
 - [x] Add edit practices functionality
 - [x] Add Logout functionality
+- [x] Show only current practices
