@@ -74,7 +74,6 @@ export function PracticesEdit() {
 
         request(endPoints.practiceDetails(practiceId), 'GET', null, abortController.signal)
             .then(result => {
-                console.log(result)
                 setFormValues(result);
             })
             .catch(err => {

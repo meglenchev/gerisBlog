@@ -50,7 +50,7 @@ export function UserRegister() {
 
         try {
             await onRegister(username, email, password);
-            navigate('/');
+            navigate('/user/settings');
         } catch (err) {
             alert(`Регистрацията беше неуспешна: ${err.message}`);
         }
@@ -64,7 +64,7 @@ export function UserRegister() {
             <form action={formAction}>
                 <h2>Регистрация</h2>
                 <div className="form-group">
-                    <label htmlFor="username">Име:</label>
+                    <label htmlFor="username">Потребителско име:</label>
                     <input
                         type="text"
                         id="username"

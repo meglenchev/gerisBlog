@@ -1,12 +1,27 @@
 import { Link } from "react-router";
 import { LatestPosts } from "./latest-posts/LatestPosts.jsx";
 import { LatestPractices } from "./latest-practices/LatestPractices.jsx";
+import { useFetch } from "../hooks/useFetch.js";
+import { endPoints } from "../../utils/endpoints.js";
+import { useContext } from "react";
+import UserContext from "../../context/UserContext.jsx";
 
 export function Home() {
+    const { setSettingsIdHandler } = useContext(UserContext);
+    const { data, isPending } = useFetch(endPoints.homeAbout, []);
+
+    if (!isPending && data.length > 0) {
+        const settingsId = data[0]._id;
+        setSettingsIdHandler(settingsId);
+    }
+
     return (
         <main>
             <article className="header-image">
-                <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/header-image.jpg?alt=media&token=76ae0ef2-08f0-4297-a313-93ae8a50cf1f" alt="Гергана Стратева" />
+                {!data.length ?
+                    <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/header-image.jpg?alt=media&token=76ae0ef2-08f0-4297-a313-93ae8a50cf1f" alt="" />
+                    : <img src={data[0].headerImage} alt="Гергана Стратева" />
+                }
             </article>
 
             <article className="quick-links">
@@ -21,7 +36,7 @@ export function Home() {
                     <img src="/images/novo.svg" alt="Ново в блога" />
                     <div>
                         <h2>Ново в блога</h2>
-                        <Link to="/blog" title="виж повече">виж повече</Link>
+                        <Link to="/blogs" title="виж повече">виж повече</Link>
                     </div>
                 </section>
                 <section>
@@ -36,18 +51,14 @@ export function Home() {
             <article className="wrap-section">
                 <section className="about-author-short">
                     <div className="author-photo">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/author.jpg?alt=media&token=47068abe-1588-444b-9394-22367515a27a" alt="Гергана Стратева" />
+                        {!data.length
+                            ? <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/author.jpg?alt=media&token=47068abe-1588-444b-9394-22367515a27a" alt="" />
+                            : <img src={data[0].authorImage} alt="Гергана Стратева" />
+                        }
                     </div>
                     <div className="author-bio">
-                        <h2>Гергана Стратева</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet totam illum quas rerum,
-                            voluptatem
-                            ad
-                            earum. Minima ducimus, impedit illum est provident modi maiores odit officiis autem pariatur
-                            quo,
-                            voluptates sint facere hic voluptatum. Minus placeat asperiores voluptatum ducimus beatae,
-                            reiciendis eveniet facere facilis tenetur vel, aut officiis, nostrum repudiandae similique
-                            provident.</p>
+                        <h2>{data[0]?.name}</h2>
+                        <p>{data[0]?.shortInfo}</p>
                         <Link to="/about" className="btn" title="Научи повече">Научи повече</Link>
                     </div>
                 </section>

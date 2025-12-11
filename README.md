@@ -74,3 +74,9 @@
 - [x] Add edit practices functionality
 - [x] Add Logout functionality
 - [x] Show only current practices
+- [x] Create a settings page
+- [x] Add settings page functionality
+- [x] Extending the userContext with the global settings ID `settingsId`
+- [x] Retrieving dynamic information about the author of the home page and saving the `settingsId` to the localstore
+- [x] Create edit settings page
+- [x] Getting the right information to edit settings

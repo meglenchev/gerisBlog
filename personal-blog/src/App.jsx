@@ -18,6 +18,8 @@ import { Practices } from './components/practices/Practices.jsx'
 import { PracticeDetails } from './components/practices/PracticeDetails.jsx'
 import { PracticesEdit } from './components/practices-edit/PracticesEdit.jsx'
 import UserLogout from './components/users/UserLogout.jsx'
+import { UserSettings } from './components/users/UserSettings.jsx'
+import { UserSettingsEdit } from './components/users/UserSettingsEdit.jsx'
 
 function App() {
     const { isAuthenticated } = useContext(UserContext);
@@ -45,6 +47,8 @@ function App() {
                         <Route path='/practices/create' element={<PracticesCreate />} />
                         <Route path='/practices/:practiceId/edit' element={<PracticesEdit />} />
                         <Route path='/user/logout' element={<UserLogout />} />
+                        <Route path='/user/settings' element={<UserSettings />} />
+                        <Route path='/user/edit/settings' element={<UserSettingsEdit />} />
                     </Route>
                 </Routes>
             </main>

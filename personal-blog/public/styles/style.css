@@ -47,6 +47,16 @@ textarea {
     line-height: 1.5;
 }
 
+.form-group-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.form-group-wrap .form-group {
+    width: calc(50% - 10px);
+}
+
 .form-group {
     margin-bottom: 1rem;
 }
@@ -746,7 +756,8 @@ footer .footer-bottom {
     color: #745D4E;
 }
 
-footer .footer-bottom a {
+footer .footer-bottom a, 
+footer .footer-bottom span {
     margin: 0;
     text-transform: uppercase;
 }

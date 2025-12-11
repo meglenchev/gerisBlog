@@ -14,10 +14,18 @@ const UserContext = createContext({
     onRegister() { },
     onLogin() { },
     onLogout() { },
+    settingsId: '',
+    setSettingsIdHandler() {}
 });
 
 export function UserProvider({ children }) {
     const [user, setUser] = useLocalStorage(null, 'auth');
+
+    const [settingsId, setSettingsId] = useLocalStorage(null, 'userSettingsId');
+
+    const setSettingsIdHandler = (id) => {
+        setSettingsId(id);
+    }
 
     const { request } = useRequest();
 
@@ -56,6 +64,7 @@ export function UserProvider({ children }) {
             }
         } finally {
             setUser(null);
+            setSettingsId(null)
         }
     };
 
@@ -64,7 +73,9 @@ export function UserProvider({ children }) {
         isAuthenticated: !!user?.accessToken,
         onRegister,
         onLogin,
-        onLogout
+        onLogout, 
+        setSettingsIdHandler,
+        settingsId
     };
 
     return (

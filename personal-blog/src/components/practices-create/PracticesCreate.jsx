@@ -51,8 +51,6 @@ export function PracticesCreate() {
 
         const { imageUrl, ...practicesData } = formDataEntries;
 
-        console.log(practicesData)
-
         setIsPending(true);
 
         try {
