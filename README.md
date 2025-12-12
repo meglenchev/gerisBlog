@@ -85,7 +85,8 @@
 - [x] Create submit edit settings data functionality
 - [x] Create contact blog
 - [x] Changing the functionality of the blog edit form
-- [x] Create upload image hook
-- [x] Using the uploadImage hook in (UserSettings, UserSettingsEdit)
+- [x] Create `uploadImage hook`
+- [x] Using the `uploadImage hook` in (UserSettings, UserSettingsEdit)
 - [x] Refactoring the blog edit form. Expanding the functionality to be able to upload images
 - [x] Refactoring the practice edit form. Expanding the functionality to be able to upload images
+- [x] Refactoring the blog creation form to use a `useForm hook`

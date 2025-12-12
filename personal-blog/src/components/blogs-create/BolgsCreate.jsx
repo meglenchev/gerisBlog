@@ -1,9 +1,16 @@
-import { storage } from "../../firebase.js";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 import { useRequest } from "../hooks/useRequest.js";
 import { endPoints } from "../../utils/endpoints.js";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import { uploadImage } from "../hooks/uploadImage.js";
+import { useForm } from "../hooks/useForm.js";
+
+const initialBlogValues = {
+    title: '',
+    imageUrl: '',
+    presentation: '',
+    content: ''
+}
 
 function validate(values) {
     let errors = {};
@@ -32,33 +39,23 @@ export function BlogsCreate() {
     const navigate = useNavigate();
     const [isPending, setIsPending] = useState(false);
 
-    const submitBlogPostHandler = async (e) => {
-        e.preventDefault();
+    const submitBlogPostHandler = async (formValues) => {
 
-        const formData = new FormData(e.target);
-        
-        const formDataEntries = Object.fromEntries(formData);
-
-        const errors = validate(formDataEntries);
+        const errors = validate(formValues);
 
         if (Object.keys(errors).length > 0) {
             return alert(Object.values(errors).at(0));;
         }
 
-        const { imageUrl, ...blogData } = formDataEntries;
+        const blogData = { ...formValues };
 
         setIsPending(true);
 
         try {
-            const imageRef = ref(storage, `images/${imageUrl.name}`);
-            const snapshot = await uploadBytes(imageRef, imageUrl);
-            const downloadURL = await getDownloadURL(snapshot.ref);
-            blogData.imageUrl = downloadURL;
-        } catch (err) {
-            return alert(`Неуспешно качване на снимката: ${err.message}`);
-        }
+            if (blogData.imageUrl instanceof File) {
+                blogData.imageUrl = await uploadImage(blogData.imageUrl);
+            }
 
-        try {
             await request(endPoints.postBlog, 'POST', blogData);
 
             setIsPending(false);
@@ -71,17 +68,19 @@ export function BlogsCreate() {
         }
     }
 
+    const { inputPropertiesRegister, filePropertiesRegister, formAction } = useForm(submitBlogPostHandler, initialBlogValues);
+
     return (
         <article className="create-blog-post-container">
             <img src="/images/create-blog-post-img.jpg" alt="" />
-            <form onSubmit={submitBlogPostHandler}>
+            <form onSubmit={formAction}>
                 <h2>Създай публикация в блога</h2>
                 <div className="form-group">
                     <label htmlFor="title">Заглавие:</label>
                     <input
                         type="text"
                         id="title"
-                        name="title"
+                        {...inputPropertiesRegister('title')}
                     />
                 </div>
 
@@ -90,7 +89,7 @@ export function BlogsCreate() {
                     <input
                         type="file"
                         id="imageUrl"
-                        name="imageUrl"
+                        {...filePropertiesRegister('imageUrl')}
                         accept="image/*"
                     />
                 </div>
@@ -99,7 +98,7 @@ export function BlogsCreate() {
                     <label htmlFor="presentation">Презентация:</label>
                     <textarea
                         id="presentation"
-                        name="presentation"
+                        {...inputPropertiesRegister('presentation')}
                         rows="3"
                     ></textarea>
                 </div>
@@ -108,7 +107,7 @@ export function BlogsCreate() {
                     <label htmlFor="content">Съдържание:</label>
                     <textarea
                         id="content"
-                        name="content"
+                        {...inputPropertiesRegister('content')}
                         rows="8"
                     ></textarea>
                 </div>
