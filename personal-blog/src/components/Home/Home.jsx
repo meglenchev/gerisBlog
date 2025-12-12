@@ -3,17 +3,19 @@ import { LatestPosts } from "./latest-posts/LatestPosts.jsx";
 import { LatestPractices } from "./latest-practices/LatestPractices.jsx";
 import { useFetch } from "../hooks/useFetch.js";
 import { endPoints } from "../../utils/endpoints.js";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import UserContext from "../../context/UserContext.jsx";
 
 export function Home() {
     const { setSettingsIdHandler } = useContext(UserContext);
     const { data, isPending } = useFetch(endPoints.homeAbout, []);
 
-    if (!isPending && data.length > 0) {
-        const settingsId = data[0]._id;
-        setSettingsIdHandler(settingsId);
-    }
+    useEffect(() => {
+        if (!isPending && data.length > 0) {
+            const settingsId = data[0]._id;
+            setSettingsIdHandler(settingsId); 
+        }
+    }, [data, isPending, setSettingsIdHandler]);
 
     return (
         <main>
