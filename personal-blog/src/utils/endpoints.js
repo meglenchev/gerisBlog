@@ -7,7 +7,6 @@ export const endPoints = {
     logout: '/users/logout',
     settings: '/data/settings',
     homeSettings: (settingsId) => `/data/settings/${settingsId}`,
-    social: '/data/settings?select=facebook,instagram,email',
     homeAbout: '/data/settings',
     allBlogs: '/data/blogs?sortBy=_createdOn%20desc', 
     latestBlogs: '/data/blogs?sortBy=_createdOn%20desc&pageSize=3',
