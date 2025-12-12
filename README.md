@@ -84,3 +84,5 @@
 - [x] Change how form data is submitted using  `onSubmit`
 - [x] Create submit edit settings data functionality
 - [x] Create contact blog
+- [x] Changing the functionality of the blog edit form
+- [x] Create upload image hook
