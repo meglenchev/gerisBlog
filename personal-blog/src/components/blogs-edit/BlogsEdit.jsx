@@ -3,6 +3,7 @@ import { endPoints } from "../../utils/endpoints.js";
 import { useForm } from "../hooks/useForm.js";
 import { useEffect, useState } from "react";
 import { useRequest } from "../hooks/useRequest.js";
+import { uploadImage } from "../hooks/uploadImage.js";
 
 const initialBlogValues = {
     title: '',
@@ -16,10 +17,6 @@ function validate(values) {
 
     if (!values.title) {
         errors['title'] = 'Заглавието е задължително!';
-    }
-
-    if (!values.imageUrl) {
-        errors['imageUrl'] = 'Снимката е задължителна!';
     }
 
     if (!values.presentation) {
@@ -46,10 +43,16 @@ export function BlogsEdit() {
             return alert(Object.values(errors).at(0));
         }
 
+        const blogData = { ...formValues };
+
         setIsPending(true);
 
         try {
-            await request(endPoints.blogDetails(blogId), 'PUT', formValues);
+            if (blogData.imageUrl instanceof File) {
+                blogData.imageUrl = await uploadImage(blogData.imageUrl);
+            }
+
+            await request(endPoints.blogDetails(blogId), 'PUT', blogData);
 
             setIsPending(false);
 
@@ -61,11 +64,11 @@ export function BlogsEdit() {
         }
     }
 
-    const { inputPropertiesRegister, formAction, setFormValues } = useForm(submitEditHandler, initialBlogValues);
+    const { inputPropertiesRegister, filePropertiesRegister, setFormValues, formAction } = useForm(submitEditHandler, initialBlogValues);
 
     useEffect(() => {
         const abortController = new AbortController();
-        
+
         request(endPoints.blogDetails(blogId), 'GET', null, abortController.signal)
             .then(result => {
                 setFormValues(result);
@@ -98,9 +101,10 @@ export function BlogsEdit() {
                 <div className="form-group">
                     <label htmlFor="imageUrl">Снимка:</label>
                     <input
-                        type="text"
+                        type="file"
                         id="imageUrl"
-                        {...inputPropertiesRegister('imageUrl')}
+                        {...filePropertiesRegister('imageUrl')}
+                        accept="image/*"
                     />
                 </div>
 
