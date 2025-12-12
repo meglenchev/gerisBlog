@@ -63,15 +63,27 @@ export function Home() {
                     </div>
                 </section>
                 <section className="post-categories">
-                    <h3>Категории в блога</h3>
+                    <h3>Свържете се с мен</h3>
+                    <p>Оценяваме интереса ви. Това са възможните начини да се свържете с мен.</p>
                     <ul>
-                        <li><Link to="#" title="Арт">Арт</Link></li>
-                        <li><Link to="#" title="Създаване">Създаване</Link></li>
-                        <li><Link to="#" title="Знания">Знания</Link></li>
-                        <li><Link to="#" title="Вдъхновение">Вдъхновение</Link></li>
-                        <li><Link to="#" title="Здраве">Здраве</Link></li>
-                        <li><Link to="#" title="Мъдрост">Мъдрост</Link></li>
-                        <li><Link to="#" title="Почерк">Почерк</Link></li>
+                        <li>
+                            {!data.length
+                                ? <span ><img src="/images/facebook.svg" alt="Facebook" /></span>
+                                : <Link to={data[0].facebook} title="Facebook"><img src="/images/facebook.svg" alt="Facebook" /></Link>
+                            }
+                        </li>
+                        <li>
+                            {!data.length
+                                ? <span><img src="/images/instagram.svg" alt="Instagram" /></span>
+                                : <Link to={data[0].instagram} title="Instagram"><img src="/images/instagram.svg" alt="Instagram" /></Link>
+                            }
+                        </li>
+                        <li>
+                            {!data.length
+                                ? <span><img src="/images/email.svg" alt="email" />your-email@gmail.com</span>
+                                : <Link to={`email: ${data[0].email}`}><img src="/images/email.svg" alt="email" /></Link>
+                            }
+                        </li>
                     </ul>
                 </section>
             </article>

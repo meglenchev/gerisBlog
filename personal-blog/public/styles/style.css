@@ -550,33 +550,65 @@ main {
 }
 
 .post-categories {
+    width: 33%;
     display: flex;
     flex-direction: column;
     flex: auto;
     background-color: #f6f6f6;
     margin-left: 20px;
-    padding: 30px;
+    padding: 0;
 }
 
 .post-categories h3 {
+    display: block;
+    width: 100%;
+    line-height: 1;
+    padding: 15px 30px;
+    background: #e9e3db;
     text-transform: none;
     font-weight: 400;
+    font-size: inherit;
+    text-transform: uppercase;
     color: #745D4E;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+}
+
+.post-categories p {
+    display: inline-block;
+    margin: 0 30px;
 }
 
 .post-categories ul {
     margin: 0;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.post-categories ul li:not(:last-child) {
-    margin-bottom: 20px;
+.post-categories li {
+    width: 30%;
+    font-size: 1.2em;
+    color: #a7846e;
+    line-height: 1.5;
+    margin: 0;
 }
 
-.post-categories ul li a {
-    font-size: 1em;
-    text-transform: uppercase;
-    color: #68686a;
+.post-categories li:not(:last-child) {
+    border-right: 1px solid #745D4E;
+}
+
+.post-categories li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.post-categories li img {
+    width: 48px;
+    height: 48px;
+    margin: 0;
 }
 
 .latest-posts h2 {
@@ -737,16 +769,6 @@ footer .footer-top ul {
     gap: 15px;
 }
 
-footer .footer-top ul li a {
-    text-decoration: none;
-    font-size: 1.5em;
-    color: #a7846e;
-}
-
-footer .footer-top ul li a:hover {
-    text-decoration: underline;
-}
-
 footer .footer-bottom {
     display: flex;
     align-items: center;
@@ -755,8 +777,7 @@ footer .footer-bottom {
     background-color: #c1ac9f;
     color: #745D4E;
 }
-
-footer .footer-bottom a, 
+ 
 footer .footer-bottom span {
     margin: 0;
     text-transform: uppercase;
@@ -878,6 +899,11 @@ footer .footer-bottom span {
     .latest-posts .posts-container .post:hover img {
         opacity: 1;
         transform: translateY(-5px);
+    }
+
+    .post-categories li a:hover img {
+        transform: rotate(720deg);
+        transition: transform .7s ease-in-out;
     }
 
     footer {
