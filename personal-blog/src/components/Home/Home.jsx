@@ -13,7 +13,7 @@ export function Home() {
     useEffect(() => {
         if (!isPending && data.length > 0) {
             const settingsId = data[0]._id;
-            setSettingsIdHandler(settingsId); 
+            setSettingsIdHandler(settingsId);
         }
     }, [data, isPending, setSettingsIdHandler]);
 
@@ -59,8 +59,13 @@ export function Home() {
                         }
                     </div>
                     <div className="author-bio">
-                        <h2>{data[0]?.name}</h2>
-                        <p>{data[0]?.shortInfo}</p>
+                        {!data.length
+                            ? <p>Противно на всеобщото вярване, Lorem Ipsum не е просто случаен текст. Неговите корени са в класическата Латинска литература от 45г.пр.Хр., което прави преди повече от 2000 години. Richard McClintock, професор по Латински от колежа Hampden-Sydney College във Вирджиния, изучавайки една от най-неясните латински думи "consectetur" в един от пасажите на Lorem Ipsum, и търсейки цитати на думата в класическата литература, открива точния източник.</p>
+                            : (<>
+                                <h2>{data[0].name}</h2>
+                                <p>{data[0].shortInfo}</p>
+                            </>)
+                        }
                         <Link to="/about" className="btn" title="Научи повече">Научи повече</Link>
                     </div>
                 </section>
@@ -82,7 +87,7 @@ export function Home() {
                         </li>
                         <li>
                             {!data.length
-                                ? <span><img src="/images/email.svg" alt="email" />your-email@gmail.com</span>
+                                ? <span><img src="/images/email.svg" alt="email" /></span>
                                 : <Link to={`email: ${data[0].email}`}><img src="/images/email.svg" alt="email" /></Link>
                             }
                         </li>
