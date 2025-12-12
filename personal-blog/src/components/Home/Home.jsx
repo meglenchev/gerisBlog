@@ -18,11 +18,11 @@ export function Home() {
     }, [data, isPending, setSettingsIdHandler]);
 
     return (
-        <main>
+        <>
             <article className="header-image">
                 {!data.length ?
-                    <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/header-image.jpg?alt=media&token=76ae0ef2-08f0-4297-a313-93ae8a50cf1f" alt="" />
-                    : <img src={data[0].headerImage} alt="Гергана Стратева" />
+                    <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/sample-content-header-image.png?alt=media&token=c875ef81-eaad-4a56-b63a-3a0bf52c30ae" alt="" />
+                    : <img src={data[0].headerImage} alt={data[0].name} />
                 }
             </article>
 
@@ -54,8 +54,8 @@ export function Home() {
                 <section className="about-author-short">
                     <div className="author-photo">
                         {!data.length
-                            ? <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/author.jpg?alt=media&token=47068abe-1588-444b-9394-22367515a27a" alt="" />
-                            : <img src={data[0].authorImage} alt="Гергана Стратева" />
+                            ? <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/sample-content-author.png?alt=media&token=c6033a51-c955-4387-9251-2178f6044ae0" alt="" />
+                            : <img src={data[0].authorImage} alt={data[0].name} />
                         }
                     </div>
                     <div className="author-bio">
@@ -96,6 +96,6 @@ export function Home() {
             </article>
             <LatestPosts />
             <LatestPractices />
-        </main>
+        </>
     )
 }
