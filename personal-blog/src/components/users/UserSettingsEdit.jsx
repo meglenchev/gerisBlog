@@ -3,9 +3,8 @@ import { useForm } from "../hooks/useForm.js";
 import { useRequest } from "../hooks/useRequest.js";
 import { endPoints } from "../../utils/endpoints.js";
 import UserContext from "../../context/UserContext.jsx";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { storage } from "../../firebase.js";
 import { useNavigate } from "react-router";
+import { uploadImage } from "../hooks/uploadImage.js";
 
 const initialSettingsValues = {
     name: '',
@@ -42,12 +41,6 @@ function validate(values) {
 
     return errors;
 }
-
-const uploadImage = async (imageFile) => {
-    const imageRef = ref(storage, `images/${imageFile.name}`);
-    const snapshot = await uploadBytes(imageRef, imageFile);
-    return await getDownloadURL(snapshot.ref);
-};
 
 export function UserSettingsEdit() {
     const { settingsId } = useContext(UserContext);

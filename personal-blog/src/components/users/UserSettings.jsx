@@ -1,10 +1,9 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { useRequest } from "../hooks/useRequest.js";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { storage } from "../../firebase.js";
 import { endPoints } from "../../utils/endpoints.js";
 import UserContext from "../../context/UserContext.jsx";
+import { uploadImage } from "../hooks/uploadImage.js";
 
 function validate(values) {
     let errors = {};
@@ -46,13 +45,6 @@ export function UserSettings() {
     const [isPending, setIsPending] = useState(false);
 
     const { setSettingsIdHandler } = useContext(UserContext);
-
-    const uploadImage = async (imageFile) => {
-        const imageRef = ref(storage, `images/${imageFile.name}`);
-        const snapshot = await uploadBytes(imageRef, imageFile);
-        return await getDownloadURL(snapshot.ref);
-    };
-
 
     const submitSettingsHandler = async (e) => {
         e.preventDefault();

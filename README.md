@@ -86,3 +86,4 @@
 - [x] Create contact blog
 - [x] Changing the functionality of the blog edit form
 - [x] Create upload image hook
+- [x] Using the uploadImage hook in (UserSettings, UserSettingsEdit)
