@@ -9,7 +9,7 @@ import UserContext from "../../context/UserContext.jsx";
 export function Home() {
     const { setSettingsIdHandler } = useContext(UserContext);
     const { data, isPending } = useFetch(endPoints.homeAbout, []);
-
+    
     useEffect(() => {
         if (!isPending && data.length > 0) {
             const settingsId = data[0]._id;

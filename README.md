@@ -92,3 +92,4 @@
 - [x] Refactoring the blog creation form to use a `useForm hook`
 - [x] Refactoring the practice creation form to use a `useForm hook`
 - [x] Expand settings and remove the author editing component
+- [x] Install Optimizer - React Compiler

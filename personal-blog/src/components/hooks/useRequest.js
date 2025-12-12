@@ -1,11 +1,11 @@
-import { useContext, useCallback } from "react";
+import { useContext } from "react";
 import { BASE_URL } from "../../utils/endpoints.js";
 import UserContext from "../../context/UserContext.jsx";
 
 export function useRequest() {
     const { user, isAuthenticated } = useContext(UserContext);
 
-    const request = useCallback(async (url, method = 'GET', data) => {
+    const request = async (url, method = 'GET', data) => {
         let options = {
             method,
             headers: {}
@@ -33,7 +33,7 @@ export function useRequest() {
         const result = await res.json();
 
         return result;
-    }, [user, isAuthenticated]);
+    }
 
     return {
         request
