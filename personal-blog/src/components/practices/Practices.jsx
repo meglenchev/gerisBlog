@@ -8,7 +8,7 @@ export function Practices() {
         <article className="latest-posts upcoming-practices">
             <h2>Предстоящи практики</h2>
 
-            <div className={data.length === 0 ? 'posts-container center' : 'posts-container'}>
+            <div className="posts-container">
                 {isPending
                     ? <div className="loader"><img src="/images/loading.svg" alt="Зареждане" /></div>
                     : data.length > 0
