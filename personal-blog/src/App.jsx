@@ -9,7 +9,8 @@ import { UserLogin } from './components/users/UserLogin.jsx'
 import { Blogs } from './components/blogs/Blogs.jsx'
 import { BlogsCreate } from './components/blogs-create/BolgsCreate.jsx'
 import { BlogDetails } from './components/blogs/BlogDetails.jsx'
-import { RouteGuard } from './components/routeGuard/RouteGuard.jsx'
+import { RegisteredOnlyRoute } from './components/routeGuard/RegisteredOnlyRoute.jsx'
+import { PublicOnlyRoute } from './components/routeGuard/PublicOnlyRoute.jsx'
 import { useContext } from 'react'
 import UserContext from './context/UserContext.jsx'
 import { BlogsEdit } from './components/blogs-edit/BlogsEdit.jsx'
@@ -37,10 +38,12 @@ function App() {
                     <Route path='/practices' element={<Practices />} />
                     <Route path='/practices/:practiceId/details' element={<PracticeDetails />} />
 
-                    <Route path='/pb-admin/register' element={<UserRegister />} />
-                    <Route path='/pb-admin/login' element={<UserLogin />} />
+                    <Route element={<PublicOnlyRoute isAuthenticated={isAuthenticated} />}>
+                        <Route path='/pb-admin/register' element={<UserRegister />} />
+                        <Route path='/pb-admin/login' element={<UserLogin />} />
+                    </Route>
 
-                    <Route element={<RouteGuard isAuthenticated={isAuthenticated} />}>
+                    <Route element={<RegisteredOnlyRoute isAuthenticated={isAuthenticated} />}>
                         <Route path='/blogs/create' element={<BlogsCreate />} />
                         <Route path='/blogs/:blogId/edit' element={<BlogsEdit />} />
                         <Route path='/practices/create' element={<PracticesCreate />} />

@@ -1,8 +1,8 @@
 import { Navigate, Outlet } from "react-router"
 
-export function RouteGuard({isAuthenticated}) {
+export function RegisteredOnlyRoute({isAuthenticated}) {
     if (!isAuthenticated) {
-        return <Navigate to="/pb-admin/login" />
+        return <Navigate to="/" />
     }
 
     return <Outlet />

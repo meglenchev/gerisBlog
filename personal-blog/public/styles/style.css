@@ -549,6 +549,10 @@ main {
     height: auto;
 }
 
+.about-author-short .author-photo .loader img {
+    width: auto;
+}
+
 .about-author-short .author-bio {
     display: flex;
     flex-direction: column;
