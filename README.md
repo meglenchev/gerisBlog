@@ -1,6 +1,6 @@
 ## Usage
 
-## Проект за персонален блог базиран на Реакт
+## A project for a personal blog based on React
 For the purposes of the project, I am using the Practice server of SoftUni Practice Server.
 
 There are two folders in the repository. `personal-blog` and `server` folders
