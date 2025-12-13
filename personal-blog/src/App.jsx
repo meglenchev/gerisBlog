@@ -21,7 +21,7 @@ import { PracticesEdit } from './components/practices-edit/PracticesEdit.jsx'
 import UserLogout from './components/users/UserLogout.jsx'
 import { UserSettings } from './components/users/UserSettings.jsx'
 import { UserSettingsEdit } from './components/users/UserSettingsEdit.jsx'
-import '../public/styles/style.css'
+import '/public/styles/style.css'
 
 function App() {
     const { isAuthenticated } = useContext(UserContext);

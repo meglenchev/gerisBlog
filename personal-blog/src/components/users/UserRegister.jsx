@@ -54,6 +54,7 @@ export function UserRegister() {
 
         try {
             await onRegister(username, email, password);
+
             navigate('/user/settings');
         } catch (err) {
             alert(`Регистрацията беше неуспешна: ${err.message}`);
