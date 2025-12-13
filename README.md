@@ -14,8 +14,8 @@ node .\server.js
 
 **To run the blog**, run the following commands in the terminal: 
 ```
-* npm install
-* npm run dev
+npm install
+npm run dev
 ```
 
 ### Services
@@ -29,3 +29,12 @@ To reach the registration page, enter http://localhost:5173/pb-admin/register in
 
 ### Login
 To reach the login page, enter http://localhost:5173/pb-admin/login in the address bar.
+
+### Online
+The project is also available at https://personal-blog-fadcb.web.app/
+
+To reach the registration page, enter https://personal-blog-fadcb.web.app/pb-admin/register in the address bar.
+
+**After registration, fill out the settings form. After that, you can use the Blog!**
+
+To reach the login page, enter https://personal-blog-fadcb.web.app/pb-admin/login  in the address bar.
