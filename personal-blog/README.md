@@ -99,3 +99,4 @@
 - [x] Add a dynamic title
 - [x] Stripping spaces at the end and beginning depending on the field
 - [x] Checking for missing photos in blog editing, practices, and author
+- [x] When the project is initially loaded, the author page shows that there is no content

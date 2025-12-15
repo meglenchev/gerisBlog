@@ -1,11 +1,16 @@
 import { BASE_URL } from "../utils/endpoints.js";
 import { useEffect, useState } from "react";
 
-export function useFetch(url, iniinitialValue, postId) {
-    const [data, setData] = useState(iniinitialValue);
+export function useFetch(url, initialValue, postId) {
+    const [data, setData] = useState(initialValue);
     const [isPending, setIsPending] = useState(true);
 
     useEffect(() => {
+        if (!url) {
+            setIsPending(false);
+            return; 
+        }
+
         const abortController = new AbortController();
 
         fetch(`${BASE_URL}${url}`, { signal: abortController.signal })

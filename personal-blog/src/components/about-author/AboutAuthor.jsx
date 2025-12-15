@@ -5,21 +5,21 @@ import { Link } from "react-router";
 import { useFetch } from "../../hooks/useFetch.js";
 
 export function AboutAuthor() {
-    const { isAuthenticated, settingsId } = useContext(UserContext);
-
-    const { data, isPending } = useFetch(endPoints.homeSettings(settingsId), []);
-
-    console.log(data)
-
     useEffect(() => {
         document.title = 'За мен';
     }, []);
+    
+    const { isAuthenticated, settingsId } = useContext(UserContext);
+
+    const fetchUrl = settingsId ? endPoints.homeSettings(settingsId) : null;
+
+    const { data, isPending } = useFetch(fetchUrl, {});
 
     return (
         <article className="about-author">
             {isPending
                 ? <div className="loader"><img src="/images/loading.svg" alt="Зареждане" /></div>
-                : data.length
+                : Object.keys(data).length > 0
                     ? <>
                         <img src={data.aboutImage} alt={data.name} />
                         <h2>За автора</h2>
