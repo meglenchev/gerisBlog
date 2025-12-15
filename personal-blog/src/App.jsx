@@ -22,6 +22,7 @@ import UserLogout from './components/users/UserLogout.jsx'
 import { UserSettings } from './components/users/UserSettings.jsx'
 import { UserSettingsEdit } from './components/users/UserSettingsEdit.jsx'
 import './styles/style.css'
+import { NotFound } from './components/not-found/NotFound.jsx'
 
 function App() {
     const { isAuthenticated } = useContext(UserContext);
@@ -33,6 +34,8 @@ function App() {
             <Header />
             <main>
                 <Routes>
+                    <Route path='*' element={<NotFound />} />
+
                     <Route path='/' element={<Home />} />
                     <Route path='/about' element={<AboutAuthor />} />
                     <Route path='/blogs' element={<Blogs />} />

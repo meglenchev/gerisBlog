@@ -101,3 +101,4 @@
 - [x] Checking for missing photos in blog editing, practices, and author
 - [x] When the project is initially loaded, the author page shows that there is no content
 - [x] Checking during registration whether there are any settings added. If there are, it takes you to the home page
+- [x] Add NotFound page

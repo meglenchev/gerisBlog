@@ -417,7 +417,8 @@ main {
 .register-container h2,
 .create-blog-post-container h2,
 .edit-blog-postntainer h2,
-.create-about-author h2 {
+.create-about-author h2, 
+.not-found h2 {
     margin-bottom: 30px;
     color: #745D4E;
 }
@@ -455,7 +456,8 @@ main {
     margin: 0;
 }
 
-.about-author {
+.about-author, 
+.not-found {
     margin-bottom: 40px;
 }
 
