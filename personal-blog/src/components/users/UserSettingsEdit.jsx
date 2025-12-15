@@ -43,6 +43,14 @@ function validate(values) {
         errors['shortInfo'] = 'Кратка презентация е задължителна!';
     }
 
+    if (!values.headerImage) {
+        errors['headerImage'] = 'Снимка за "хедъра" на начална страница е задължителна!';
+    }
+
+    if (!values.authorImage) {
+        errors['authorImage'] = 'Снимка на автора за начална страница е задължителна!';
+    }
+
     if (!values.slogan) {
         errors['slogan'] = 'Слоган е задължителен!';
     }

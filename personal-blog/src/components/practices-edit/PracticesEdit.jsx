@@ -22,6 +22,10 @@ function validate(values) {
         errors['title'] = 'Заглавието е задължително!';
     }
 
+    if (!values.imageUrl) {
+        errors['imageUrl'] = 'Снимката е задължителна!';
+    }
+
     if (!values.presentation) {
         errors['presentation'] = 'Кратката презентация е задължителна!';
     }

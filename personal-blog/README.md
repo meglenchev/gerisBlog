@@ -98,3 +98,4 @@
 - [x] Home: Add a dynamic title and change a `link` to `a`
 - [x] Add a dynamic title
 - [x] Stripping spaces at the end and beginning depending on the field
+- [x] Checking for missing photos in blog editing, practices, and author
