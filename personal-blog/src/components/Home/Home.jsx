@@ -7,13 +7,17 @@ import { useFetch } from "../../hooks/useFetch.js";
 import UserContext from "../../context/UserContext.jsx";
 
 export function Home() {
+    useEffect(() => {
+        document.title = "Начална страница | Моят Блог";
+    }, []);
+
     const { setSettingsIdHandler } = useContext(UserContext);
 
     const { data, isPending } = useFetch(endPoints.homeAbout, []);
 
-    useEffect(() => {
-        document.title = "Начална страница | Моят Блог";
-    }, []);
+    const hasData = !isPending && data && data.length > 0;
+
+    const isEmpty = !isPending && (!data || data.length === 0);
 
     useEffect(() => {
         if (!isPending) {
@@ -28,12 +32,9 @@ export function Home() {
     return (
         <>
             <article className="header-image">
-                {isPending
-                    ? <div className="loader"><img src="/images/loading.svg" alt="Зареждане" /></div>
-                    : !data.length
-                        ? <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/sample-content-header-image.png?alt=media&token=c875ef81-eaad-4a56-b63a-3a0bf52c30ae" alt="" />
-                        : <img src={data[0].headerImage} alt={data[0].name} />
-                }
+                {isPending && <div className="loader"><img src="/images/loading.svg" alt="Зареждане" /></div>}
+                {hasData && <img src={data[0].headerImage} alt={data[0].name} />}
+                {isEmpty && <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/sample-content-header-image.png?alt=media&token=c875ef81-eaad-4a56-b63a-3a0bf52c30ae" alt="" />}
             </article>
 
             <article className="quick-links">
@@ -63,23 +64,17 @@ export function Home() {
             <article className="wrap-section">
                 <section className="about-author-short">
                     <div className="author-photo">
-                        {isPending
-                            ? <div className="loader"><img src="/images/loading.svg" alt="Зареждане" /></div>
-                            : !data.length
-                                ? <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/sample-content-author.png?alt=media&token=c6033a51-c955-4387-9251-2178f6044ae0" alt="" />
-                                : <img src={data[0].authorImage} alt={data[0].name} />
-                        }
+                        {isPending && <div className="loader"><img src="/images/loading.svg" alt="Зареждане" /></div>}
+                        {hasData && <img src={data[0].authorImage} alt={data[0].name} />}
+                        {isEmpty && <img src="https://firebasestorage.googleapis.com/v0/b/personal-blog-fadcb.firebasestorage.app/o/sample-content-author.png?alt=media&token=c6033a51-c955-4387-9251-2178f6044ae0" alt="" />}
                     </div>
                     <div className="author-bio">
-                        {isPending
-                            ? <div className="loader"><img src="/images/loading.svg" alt="Зареждане" /></div>
-                            : !data.length
-                                ? <p>Противно на всеобщото вярване, Lorem Ipsum не е просто случаен текст. Неговите корени са в класическата Латинска литература от 45г.пр.Хр., което прави преди повече от 2000 години. Richard McClintock, професор по Латински от колежа Hampden-Sydney College във Вирджиния, изучавайки една от най-неясните латински думи "consectetur" в един от пасажите на Lorem Ipsum, и търсейки цитати на думата в класическата литература, открива точния източник.</p>
-                                : (<>
-                                    <h2>{data[0].name}</h2>
-                                    <p>{data[0].shortInfo}</p>
-                                </>)
-                        }
+                        {isPending && <div className="loader"><img src="/images/loading.svg" alt="Зареждане" /></div>}
+                        {hasData && (<>
+                            <h2>{data[0].name}</h2>
+                            <p>{data[0].shortInfo}</p>
+                        </>)}
+                        {isEmpty && <p>Противно на всеобщото вярване, Lorem Ipsum не е просто случаен текст. Неговите корени са в класическата Латинска литература от 45г.пр.Хр., което прави преди повече от 2000 години. Richard McClintock, професор по Латински от колежа Hampden-Sydney College във Вирджиния, изучавайки една от най-неясните латински думи "consectetur" в един от пасажите на Lorem Ipsum, и търсейки цитати на думата в класическата литература, открива точния източник.</p>}
                         <Link to="/about" className="btn" title="Научи повече">Научи повече</Link>
                     </div>
                 </section>
@@ -88,22 +83,16 @@ export function Home() {
                     <p>Оценяваме интереса ви. Това са възможните начини да се свържете с мен.</p>
                     <ul>
                         <li>
-                            {!data.length
-                                ? <span ><img src="/images/facebook.svg" alt="Facebook" /></span>
-                                : <a href={data[0].facebook} title="Facebook"><img src="/images/facebook.svg" alt="Facebook" /></a>
-                            }
+                            {hasData && <a href={data[0].facebook} title="Facebook"><img src="/images/facebook.svg" alt="Facebook" /></a>}
+                            {isEmpty && <span ><img src="/images/facebook.svg" alt="Facebook" /></span>}
                         </li>
                         <li>
-                            {!data.length
-                                ? <span><img src="/images/instagram.svg" alt="Instagram" /></span>
-                                : <a href={data[0].instagram} title="Instagram"><img src="/images/instagram.svg" alt="Instagram" /></a>
-                            }
+                            {hasData && <a href={data[0].instagram} title="Instagram"><img src="/images/instagram.svg" alt="Instagram" /></a>}
+                            {isEmpty && <span><img src="/images/instagram.svg" alt="Instagram" /></span>}
                         </li>
                         <li>
-                            {!data.length
-                                ? <span><img src="/images/email.svg" alt="email" /></span>
-                                : <a href={`email: ${data[0].email}`}><img src="/images/email.svg" alt="email" /></a>
-                            }
+                            {hasData && <a href={`email: ${data[0].email}`}><img src="/images/email.svg" alt="email" /></a>}
+                            {isEmpty && <span><img src="/images/email.svg" alt="email" /></span>}
                         </li>
                     </ul>
                 </section>

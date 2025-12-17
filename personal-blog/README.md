@@ -103,3 +103,4 @@
 - [x] Checking during registration whether there are any settings added. If there are, it takes you to the home page
 - [x] Add NotFound page
 - [x] If you are not the owner of the post or practice, you cannot edit them, delete them
+- [x] Home: Optimizing logic to avoid complex checks in many places in the code
