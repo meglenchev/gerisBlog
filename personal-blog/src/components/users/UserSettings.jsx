@@ -72,8 +72,11 @@ function validate(values) {
 }
 
 export function UserSettings() {
+
     const { request } = useRequest();
+
     const navigate = useNavigate();
+
     const [isPendingUpload, setIsPendingUpload] = useState(false);
 
     const { setSettingsIdHandler } = useContext(UserContext);

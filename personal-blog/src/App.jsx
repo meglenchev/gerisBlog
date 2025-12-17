@@ -51,13 +51,13 @@ function App() {
                     </Route>
 
                     <Route element={<RegisteredOnlyRoute isAuthenticated={isAuthenticated} />}>
-                        <Route path='/blogs/create' element={<BlogsCreate />} />
-                        <Route path='/blogs/:blogId/edit' element={<BlogsEdit />} />
-                        <Route path='/practices/create' element={<PracticesCreate />} />
-                        <Route path='/practices/:practiceId/edit' element={<PracticesEdit />} />
+                        <Route path='/blogs/create' element={<BlogsCreate mode="create" />} />
+                        <Route path='/blogs/:blogId/edit' element={<BlogsEdit mode="edit" />} />
+                        <Route path='/practices/create' element={<PracticesCreate mode="create" />} />
+                        <Route path='/practices/:practiceId/edit' element={<PracticesEdit mode="edit" />} />
                         <Route path='/pb-admin/logout' element={<UserLogout />} />
-                        <Route path='/user/settings' element={<UserSettings />} />
-                        <Route path='/user/edit/settings' element={<UserSettingsEdit />} />
+                        <Route path='/user/settings' element={<UserSettings mode="create" />} />
+                        <Route path='/user/edit/settings' element={<UserSettingsEdit mode="edit" />} />
                     </Route>
                 </Routes>
             </main>
