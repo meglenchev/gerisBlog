@@ -106,3 +106,4 @@
 - [x] Home: Optimizing logic to avoid complex checks in many places in the code
 - [x] Preparing to use a single component for creation and editing
 - [x] Unifying blog post creation and editing components for project optimization
+- [x] Unifying practice creation and editing components for project optimization
