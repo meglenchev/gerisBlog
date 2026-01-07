@@ -6,10 +6,10 @@ import { useRequest } from "../hooks/useRequest.js";
 const UserContext = createContext({
     isAuthenticated: false,
     user: {
-        email: '',
         _id: '',
+        username: '',
+        email: '',
         accessToken: '',
-        username: ''
     },
     onRegister() { },
     onLogin() { },
@@ -29,8 +29,8 @@ export function UserProvider({ children }) {
 
     const { request } = useRequest();
 
-    const onRegister = async (username, email, password) => {
-        const result = await request(endPoints.register, 'POST', { username, email, password })
+    const onRegister = async (username, email, password, confirmPassword) => {
+        const result = await request(endPoints.register, 'POST', { username, email, password, confirmPassword });
 
         const loggedUser = {
             email: result.email,

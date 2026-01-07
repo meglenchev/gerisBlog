@@ -107,3 +107,5 @@
 - [x] Preparing to use a single component for creation and editing
 - [x] Unifying blog post creation and editing components for project optimization
 - [x] Unifying practice creation and editing components for project optimization
+- [x] Replacing the Softuni server with an Express/MongoDB - based server
+- [] Setting up the client and server to work together

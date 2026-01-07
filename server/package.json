@@ -1,0 +1,30 @@
+{
+  "name": "serverblog",
+  "version": "1.0.0",
+  "description": "SoftUni JS Back-End Exam Preparation Cheat Sheet",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meglenchev/serverBlog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/meglenchev/serverBlog/issues"
+  },
+  "homepage": "https://github.com/meglenchev/serverBlog#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^9.0.0"
+  }
+}

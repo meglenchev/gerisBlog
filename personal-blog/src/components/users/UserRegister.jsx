@@ -53,7 +53,7 @@ export function UserRegister() {
 
     const submitUserRegisterData = async (formValues) => {
 
-        const { username, email, password } = formValues;
+        const { username, email, password, confirmPassword } = formValues;
 
         const errors = validate(formValues);
 
@@ -62,7 +62,7 @@ export function UserRegister() {
         }
 
         try {
-            await onRegister(username, email, password);
+            await onRegister(username, email, password, confirmPassword);
 
             navigate('/user/settings');
         } catch (err) {
