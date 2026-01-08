@@ -43,3 +43,9 @@
  - [x] Create blog controller
  - [x] Add blog controller  to routes
  - [x] Create blog service
+
+ ## 6. Changes on the server to save and return the correct data needed for the client to work
+ - [x] Add the 'presentation' to the Blog model
+
+ ## ToDo 
+ - [] Аutomatic generation of "slugs" (friendly URLs) for Blogs and Practices `npm install speakingurl`

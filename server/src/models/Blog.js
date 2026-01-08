@@ -13,8 +13,15 @@ const blogSchema = new Schema({
         required: [true, 'Image is required!'],
         match: [/^https?:\/\//, 'Image Url is invalid']
     },
+    presentation: {
+        type: String, 
+        trim: true,
+        required: [true, 'Presentation is required!'],
+        minLength: [10, 'Presentation should be at least 10 characters long!']
+    },
     content: {
         type: String, 
+        trim: true,
         required: [true, 'Content is required!'],
         minLength: [10, 'Content should be at least 10 characters long!']
     }, 
