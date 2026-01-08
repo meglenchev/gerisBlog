@@ -139,7 +139,7 @@ blogController.put('/blogs/:blogId/edit', async (req, res) => {
             });
         }
 
-        if (blog.owner.toString() !== userId) {
+        if (String(blog.owner) !== String(userId)) {
             return res.status(403).json({
                 message: 'You are not authorized to edit this blog!'
             });
