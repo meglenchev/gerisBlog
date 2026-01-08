@@ -112,3 +112,4 @@
     - [x] Optimizing server response during registration
     - [x] Change endpoints
     - [x] Adding categories to the controller
+    - [x] Add blog edit endpoint
