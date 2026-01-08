@@ -114,3 +114,4 @@
     - [x] Adding categories to the controller
     - [x] Add blog edit endpoint
     - [x] Optimizing and modifying the blog detail page
+    - [x] Modifying the request hook

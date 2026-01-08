@@ -17,7 +17,7 @@ export function useRequest() {
         }
 
         if (isAuthenticated && user?.accessToken) {
-            options.headers['X-Authorization'] = user.accessToken;
+            options.headers['x-authorization'] = user.accessToken;
         }
 
         const res = await fetch(`${BASE_URL}${url}`, options);
@@ -27,7 +27,7 @@ export function useRequest() {
         }
 
         if (res.status === 204) {
-            return {}
+            return null
         }
 
         const result = await res.json();
