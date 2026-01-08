@@ -115,3 +115,4 @@
     - [x] Add blog edit endpoint
     - [x] Optimizing and modifying the blog detail page
     - [x] Modifying the request hook
+    - [x] Modify the creation and editing component

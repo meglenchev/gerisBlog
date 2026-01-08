@@ -30,7 +30,7 @@ export function BlogsCreate({ mode }) {
 
     const config = {
         method: isEditMode ? 'PUT' : 'POST',
-        url: isEditMode ? endPoints.blogDetails(blogId) : endPoints.postBlog, 
+        url: isEditMode ? endPoints.blogEdit(blogId) : endPoints.postBlog, 
         navigateTo: isEditMode ? `/blogs/${blogId}/details` : '/blogs',
         errMsg: isEditMode ? 'Неуспешно редактиране на публикация' : 'Неуспешно създаване на публикация'
     };
@@ -63,7 +63,7 @@ export function BlogsCreate({ mode }) {
 
     const submitEditHandler = async (formValues) => {
         const errors = validate(formValues);
-
+        
         if (errors) {
             alert(errors);
             return;
@@ -104,7 +104,9 @@ export function BlogsCreate({ mode }) {
 
         request(endPoints.blogDetails(blogId), 'GET', null, abortController.signal)
             .then(result => {
-                if (user._id !== result._ownerId) {
+                const ownerId = result.owner?._id || result.owner; 
+
+                if (String(user?._id) !== String(ownerId)) {
                     return navigate('/');
                 }
 
