@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getErrorMessage } from "../utils/errorUtils.js";
 import blogServices from "../services/blogServices.js";
+import { authMiddleware } from "../middlewares/authMiddleware.js";
 
 export const blogController = Router();
 
@@ -165,7 +166,7 @@ blogController.post('/blogs/create', async (req, res) => {
         return res.status(401).json({ error: "You must be logged in to create a blog!" });
     }
 
-    const blogData = req.body;
+    const blogData = req.body;  
 
     const isEmpty = Object.values(blogData).some(value => typeof value === 'string' && value.trim() === '');
 

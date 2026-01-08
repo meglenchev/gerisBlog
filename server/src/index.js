@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import { authMiddleware } from './middlewares/authMiddleware.js';
 import { routes } from './routes.js';
 import 'dotenv/config';
 
@@ -27,6 +28,9 @@ app.use(cors());
 
 // Add JSON parser
 app.use(express.json());
+
+// Use Auth Middleware
+app.use(authMiddleware);
 
 // Add Routes
 app.use(routes);

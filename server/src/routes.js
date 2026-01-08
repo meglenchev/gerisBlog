@@ -9,6 +9,6 @@ routes.use(homeController);
 routes.use(userController);
 routes.use(blogController);
 
-routes.get('/*splat', (req, res) => {
-    res.status(404).render('404', { pageTitle: '404 Page not found' });
+routes.use('/*splat', (req, res) => {
+    res.status(404).json({ message: 'Маршрутът не е намерен' });
 });
