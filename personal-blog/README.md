@@ -118,3 +118,4 @@
     - [x] Modify the creation and editing component
 
 - [x] Adding credentials: 'include' to the request hook due to the switch to HttpOnly cookies
+- [x] Changing authentication in user context due to the transition to HttpOnly cookies

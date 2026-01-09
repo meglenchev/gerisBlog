@@ -9,7 +9,7 @@ const UserContext = createContext({
         _id: '',
         username: '',
         email: '',
-        accessToken: '',
+        //accessToken: '',
     },
     onRegister() { },
     onLogin() { },
@@ -36,7 +36,7 @@ export function UserProvider({ children }) {
             email: result.email,
             username: result.username,
             _id: result._id,
-            accessToken: result.accessToken
+            //accessToken: result.accessToken
         }
 
         setUser(loggedUser)
@@ -49,7 +49,7 @@ export function UserProvider({ children }) {
             email: result.email,
             username: result.username,
             _id: result._id,
-            accessToken: result.accessToken
+            //accessToken: result.accessToken
         }
 
         setUser(loggedUser);
@@ -70,7 +70,7 @@ export function UserProvider({ children }) {
 
     const userContextValues = {
         user,
-        isAuthenticated: !!user?.accessToken,
+        isAuthenticated: !!user?._id,
         onRegister,
         onLogin,
         onLogout, 
