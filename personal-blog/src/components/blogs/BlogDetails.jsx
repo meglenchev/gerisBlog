@@ -40,7 +40,7 @@ export function BlogDetails() {
         }
 
         try {
-            await request(endPoints.blogDetails(blogId), 'DELETE');
+            await request(endPoints.blogDelete(blogId), 'DELETE');
 
             navigate('/blogs');
         } catch (err) {

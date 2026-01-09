@@ -13,6 +13,7 @@ export const endPoints = {
     postBlog: '/blogs/create',
     blogEdit: (blogId) => `/blogs/${blogId}/edit`,
     blogDetails: (blogId) => `/blogs/${blogId}/details`,
+    blogDelete: (blogId) => `/blogs/${blogId}/delete`,
     allPractices: '/practices?sortBy=date%20desc',
     latestPractices: '/practices?sortBy=date%20desc&pageSize=3',
     postPractices: '/practices',
