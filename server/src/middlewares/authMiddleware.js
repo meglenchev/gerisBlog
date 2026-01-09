@@ -1,17 +1,16 @@
 import jwt from 'jsonwebtoken';
-import { JWT_SECRET } from '../config/constants.js';
-import userService from '../services/userService.js';
 import { User } from '../models/User.js';
 
 export async function authMiddleware(req, res, next) {
-    const token = req.headers['x-authorization'];
+    //const token = req.headers['x-authorization'];
+    const token = req.cookies.token;
 
     if (!token) {
         return next();
     }
 
     try {
-        const decodedToken = jwt.verify(token, JWT_SECRET);
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
 
         const user = await User.findById(decodedToken.id);
 

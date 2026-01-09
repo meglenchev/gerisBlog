@@ -55,6 +55,7 @@
     - [x] Login Controller (Cookie Creation)
     - [x] LogOut Controller 
     - [x] CORS settings for use (credentials: 'include')
+    - [x] Change token retrieval in Auth Middleware
 
  ## ToDo 
  - [] Аutomatic generation of "slugs" (friendly URLs) for Blogs and Practices `npm install speakingurl`
