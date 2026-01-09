@@ -49,5 +49,10 @@
  - [x] Add 'Auth Middleware'
  - [x] Sort blogs - show most recently added first
 
+## 7. Creating strong user authentication - HttpOnly Cookie
+  - [] Store the token in an HttpOnly Cookie (not accessible to JavaScript)
+    - [x] Installing cookie-parser `npm install cookie-parser`
+    - [] Login Controller (Cookie Creation)
+
  ## ToDo 
  - [] Аutomatic generation of "slugs" (friendly URLs) for Blogs and Practices `npm install speakingurl`
