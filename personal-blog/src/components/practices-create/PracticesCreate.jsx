@@ -110,7 +110,11 @@ export function PracticesCreate({ mode }) {
 
         request(endPoints.practiceDetails(practiceId), 'GET', null, abortController.signal)
             .then(result => {
-                if (user?._id && result._ownerId && user._id !== result._ownerId) {
+                if (!result || Object.keys(result).length === 0) {
+                    return;
+                }
+                
+                if (user?._id && result.owner && user._id !== result.owner) {
                     return navigate('/');
                 }
                 setFormValues(result);

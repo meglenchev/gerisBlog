@@ -110,7 +110,11 @@ export function BlogsCreate({ mode }) {
 
         request(endPoints.blogDetails(blogId), 'GET', null, abortController.signal)
             .then(result => {
-                if (user?._id && result._ownerId && user._id !== result._ownerId) {
+                if (!result || Object.keys(result).length === 0) {
+                    return;
+                }
+
+                if (user?._id && String(result.owner) && user._id !== String(result.owner)) {
                     return navigate('/');
                 }
 
