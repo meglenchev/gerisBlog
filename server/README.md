@@ -57,5 +57,8 @@
     - [x] CORS settings for use (credentials: 'include')
     - [x] Change token retrieval in Auth Middleware
 
+## 8. Practice
+  - [x] Define Practice model with validation and timestamps
+
  ## ToDo 
  - [] Аutomatic generation of "slugs" (friendly URLs) for Blogs and Practices `npm install speakingurl`
