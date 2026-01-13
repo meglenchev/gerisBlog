@@ -15,7 +15,9 @@ export const endPoints = {
     blogDetails: (blogId) => `/blogs/${blogId}/details`,
     blogDelete: (blogId) => `/blogs/${blogId}/delete`,
     postPractices: '/practices/create',
-    allPractices: '/practices?sortBy=date%20desc',
-    latestPractices: '/practices?sortBy=date%20desc&pageSize=3',
-    practiceDetails: (practiceId) => `/practices/${practiceId}`,
+    allPractices: '/practices',
+    latestPractices: '/practices/latest',
+    practiceDetails: (practiceId) => `/practices/${practiceId}/details`,
+    practiceEdit: (practiceId) => `/practices/${practiceId}/edit`,
+    practiceDelete: (practiceId) => `/practices/${practiceId}/delete`,
 }
