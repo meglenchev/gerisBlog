@@ -14,8 +14,8 @@ export default {
     getLast() {
         return Practice.find().sort({ _id: -1 }).limit(3)
     }, 
-    getOne() {
-        return Practice.findOne(practiceId);
+    getOne(practiceId) {
+        return Practice.findById(practiceId);
     },
     update(practiceDate, practiceId) {
         return Practice.findOneAndUpdate(practiceId, practiceDate, {
