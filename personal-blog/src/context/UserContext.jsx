@@ -1,33 +1,46 @@
-import { createContext } from "react";
+import { createContext, useEffect, useCallback } from "react";
 import { endPoints } from "../utils/endpoints.js";
 import { useLocalStorage } from "../hooks/useLocalStorage.js";
 import { useRequest } from "../hooks/useRequest.js";
 
 const UserContext = createContext({
+    user: null,
     isAuthenticated: false,
-    user: {
-        _id: '',
-        username: '',
-        email: '',
-        //accessToken: '',
-    },
-    onRegister() { },
-    onLogin() { },
-    onLogout() { },
+    onRegister: () => { },
+    onLogin: () => { },
+    onLogout: () => { },
     settingsId: '',
-    setSettingsIdHandler() {}
+    setSettingsIdHandler: () => { }
 });
 
 export function UserProvider({ children }) {
     const [user, setUser] = useLocalStorage(null, 'auth');
-
     const [settingsId, setSettingsId] = useLocalStorage(null, 'userSettingsId');
+    const { request } = useRequest();
+
+    // Функция за локално изчистване на данните (LocalStorage)
+    const clearUserData = useCallback(() => {
+        setUser(null);
+        setSettingsId(null);
+    }, [setUser, setSettingsId]);
+
+    // Слушател за изтекла сесия (401 от сървъра)
+    useEffect(() => {
+        const handleSessionExpired = () => {
+            clearUserData();
+            // Тук можеш да добавиш window.location.href = '/login' ако искаш редирект
+        };
+
+        window.addEventListener('auth-session-expired', handleSessionExpired);
+
+        return () => {
+            window.removeEventListener('auth-session-expired', handleSessionExpired);
+        };
+    }, [clearUserData]);
 
     const setSettingsIdHandler = (id) => {
         setSettingsId(id);
-    }
-
-    const { request } = useRequest();
+    };
 
     const onRegister = async (username, email, password, confirmPassword) => {
         const result = await request(endPoints.register, 'POST', { username, email, password, confirmPassword });
@@ -36,10 +49,9 @@ export function UserProvider({ children }) {
             email: result.email,
             username: result.username,
             _id: result._id,
-            //accessToken: result.accessToken
-        }
+        };
 
-        setUser(loggedUser)
+        setUser(loggedUser);
     };
 
     const onLogin = async (loginData) => {
@@ -49,8 +61,7 @@ export function UserProvider({ children }) {
             email: result.email,
             username: result.username,
             _id: result._id,
-            //accessToken: result.accessToken
-        }
+        };
 
         setUser(loggedUser);
     };
@@ -60,11 +71,11 @@ export function UserProvider({ children }) {
             await request(endPoints.logout, 'POST', null);
         } catch (err) {
             if (err.name !== 'AbortError') {
-                console.error("Заявката за излизане не бе успешна:", err);
+                console.error("Грешка при излизане:", err);
             }
         } finally {
-            setUser(null);
-            setSettingsId(null)
+            // Винаги чистим локалните данни, дори ако заявката към сървъра се провали
+            clearUserData();
         }
     };
 
