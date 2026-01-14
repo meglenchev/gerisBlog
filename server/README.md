@@ -65,6 +65,11 @@
 
 ## 8. Settings and About info
   - [x] Add role-based access control (RBAC)
+  - [x] Define About info model with validation and timestamps
+  - [] Implement CRUD services for About info model
+  - [] Implement About info controller with full CRUD and authorization
+  - [] Register About info routes
+
 
  ## ToDo 
  - [] Аutomatic generation of "slugs" (friendly URLs) for Blogs and Practices `npm install speakingurl`
