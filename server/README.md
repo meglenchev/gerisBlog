@@ -68,7 +68,7 @@
   - [x] Define About info model with validation and timestamps
   - [x] Implement CRUD services for About info model
   - [x] Implement About info controller with full CRUD and authorization
-  - [] Register About info routes
+  - [x] Register About info routes
 
 
  ## ToDo 
