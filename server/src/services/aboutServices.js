@@ -1,4 +1,4 @@
-import { About } from '../models/AboutModel.js';
+import { About } from '../models/About.js';
 
 export default {
     getOne() {
