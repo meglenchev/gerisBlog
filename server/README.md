@@ -70,6 +70,8 @@
   - [x] Implement About info controller with full CRUD and authorization
   - [x] Register About info routes
 
+ - [x] Rename authMiddleware to verifyToken and add RBAC support
+
 
  ## ToDo 
  - [] Аutomatic generation of "slugs" (friendly URLs) for Blogs and Practices `npm install speakingurl`
