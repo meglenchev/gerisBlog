@@ -120,5 +120,10 @@
     - [x] Add practice create endpoint and rename date field to practiceDate
     - [x] Add practice API endpoints to the central endpoint configuration
 
+## 6. About Author Information ( Create, Edit )
+- [] Separate the creation of author information into a separate component of the settings
+    - [x] Create a component to add author information
+    - [] Modification of the component for displaying author information
+
 - [x] Adding credentials: 'include' to the request hook due to the switch to HttpOnly cookies
 - [x] Changing authentication in user context due to the transition to HttpOnly cookies
