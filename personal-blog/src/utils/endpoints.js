@@ -8,6 +8,8 @@ export const endPoints = {
     settings: '/settings',
     homeSettings: (settingsId) => `/settings/${settingsId}`,
     homeAbout: '/settings',
+    about: '/about',
+    aboutEdit: '/about/edit',
     allBlogs: '/blogs', 
     latestBlogs: '/blogs/latest',
     postBlog: '/blogs/create',

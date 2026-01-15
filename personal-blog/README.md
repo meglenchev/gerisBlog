@@ -125,6 +125,7 @@
     - [x] Create a component to add author information
     - [x] Modification of the component for displaying author information
     - [x] Add a route to create author information
+    - [x] Adding endpoints to create/retrieve author information
 
 - [x] Adding credentials: 'include' to the request hook due to the switch to HttpOnly cookies
 - [x] Changing authentication in user context due to the transition to HttpOnly cookies
