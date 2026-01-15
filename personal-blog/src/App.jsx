@@ -21,6 +21,7 @@ import { UserSettings } from './components/users/UserSettings.jsx'
 import { UserSettingsEdit } from './components/users/UserSettingsEdit.jsx'
 import './styles/style.css'
 import { NotFound } from './components/not-found/NotFound.jsx'
+import { AboutCreate } from './components/about-create/AboutCreate.jsx'
 
 function App() {
     const { isAuthenticated } = useContext(UserContext);
@@ -56,6 +57,7 @@ function App() {
                         <Route path='/pb-admin/logout' element={<UserLogout />} />
                         <Route path='/user/settings' element={<UserSettings mode="create" />} />
                         <Route path='/user/edit/settings' element={<UserSettingsEdit mode="edit" />} />
+                        <Route path='/about/create' element={<AboutCreate />} />   
                     </Route>
                 </Routes>
             </main>
