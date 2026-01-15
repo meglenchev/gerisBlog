@@ -72,6 +72,7 @@
 
  - [x] Rename authMiddleware to verifyToken and add RBAC support
  - [x] Remove global authMiddleware in favor of route-specific verifyToken
+ - [x] Add role and access token to JWT payload in UserController
 
 
  ## ToDo 

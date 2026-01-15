@@ -11,7 +11,7 @@ userController.post('/users/login', async (req, res) => {
     try {
         const user = await userService.login(email, password);
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id, role: user.role, token: user.accessToken }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         res.cookie('token', token, { 
             httpOnly: true, // Предотвратява достъп от JS (защита от XSS)
@@ -25,6 +25,7 @@ userController.post('/users/login', async (req, res) => {
             username: user.username,
             email: user.email, 
             _id: user._id,
+            role: user.role,
         })
 
     } catch (err) {
