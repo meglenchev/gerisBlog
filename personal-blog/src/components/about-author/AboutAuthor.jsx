@@ -9,11 +9,9 @@ export function AboutAuthor() {
         document.title = 'За мен';
     }, []);
 
-    const { user, settingsId } = useContext(UserContext);
+    const { user } = useContext(UserContext);
 
-    const fetchUrl = settingsId ? endPoints.homeSettings(settingsId) : null;
-
-    const { data, isPending } = useFetch(fetchUrl, {});
+    const { data, isPending } = useFetch(endPoints.about, {});
 
     const hasData = data && Object.keys(data).length > 0;
 
@@ -39,7 +37,7 @@ export function AboutAuthor() {
                     : (<>
                         <p className="no-articles">Няма добавена информация!</p>
 
-                        {hasUser && <Link to="/user/settings" className="btn right btn-settings">Добавете информация</Link>}
+                        {hasUser && <Link to="/about/create" className="btn right btn-settings">Добавете информация</Link>}
                     </>)
             }
         </article>
