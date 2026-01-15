@@ -29,7 +29,7 @@ export function PracticesCreate({ mode }) {
 
     const config = useMemo(() => ({
         method: isEditMode ? 'PUT' : 'POST',
-        url: isEditMode ? endPoints.practiceDetails(practiceId) : endPoints.postPractices,
+        url: isEditMode ? endPoints.practiceEdit(practiceId) : endPoints.postPractices,
         navigateTo: isEditMode ? `/practices/${practiceId}/details` : '/practices',
         errMsg: isEditMode ? 'Неуспешно редактиране на практика' : 'Неуспешно създаване на практика'
     }), [isEditMode, practiceId]);

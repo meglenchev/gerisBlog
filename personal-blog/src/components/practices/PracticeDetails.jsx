@@ -37,7 +37,7 @@ export function PracticeDetails() {
         }
 
         try {
-            await request(endPoints.practiceDetails(practiceId), 'DELETE');
+            await request(endPoints.practiceDelete(practiceId), 'DELETE');
 
             navigate('/practices');
         } catch (err) {
@@ -62,7 +62,7 @@ export function PracticeDetails() {
                         <p>{data.content}</p>
                         <div className="post-footer">
                             <span onClick={goBackHandler} className="btn btn-back" title="Назад">Назад</span>
-                            {isAuthenticated && data._ownerId === user._id
+                            {isAuthenticated && data.owner === user._id
                                 ? <div className="buttons">
                                     <Link to={`/practices/${practiceId}/edit`} className="btn btn-edit" title="Редактирай практика">Редактирай</Link>
                                     <button onClick={deletePracticeHandler} className="btn btn-delete" title="Изтрий практика">Изтрий</button>
