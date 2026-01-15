@@ -71,6 +71,7 @@
   - [x] Register About info routes
 
  - [x] Rename authMiddleware to verifyToken and add RBAC support
+ - [x] Remove global authMiddleware in favor of route-specific verifyToken
 
 
  ## ToDo 
