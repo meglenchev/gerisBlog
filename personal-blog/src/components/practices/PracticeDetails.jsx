@@ -6,7 +6,7 @@ import UserContext from "../../context/UserContext.jsx";
 import { useRequest } from "../../hooks/useRequest.js";
 
 export function PracticeDetails() {
-    const { user, isAuthenticated } = useContext(UserContext);
+    const { user, isAuthenticated, isAdmin } = useContext(UserContext);
     const { practiceId } = useParams();
 
     const { data, isPending } = useFetch(endPoints.practiceDetails(practiceId), {}, practiceId);
@@ -62,7 +62,7 @@ export function PracticeDetails() {
                         <p>{data.content}</p>
                         <div className="post-footer">
                             <span onClick={goBackHandler} className="btn btn-back" title="Назад">Назад</span>
-                            {isAuthenticated && data.owner === user._id
+                            {isAuthenticated && (String(data.owner) === String(user?._id) || isAdmin)
                                 ? <div className="buttons">
                                     <Link to={`/practices/${practiceId}/edit`} className="btn btn-edit" title="Редактирай практика">Редактирай</Link>
                                     <button onClick={deletePracticeHandler} className="btn btn-delete" title="Изтрий практика">Изтрий</button>

@@ -23,7 +23,7 @@ export function UserProvider({ children }) {
     const [settingsId, setSettingsId] = useLocalStorage(null, 'userSettingsId');
 
     const [userRoles, setUserRoles] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(!!user?._id);
 
     const { request } = useRequest();
 

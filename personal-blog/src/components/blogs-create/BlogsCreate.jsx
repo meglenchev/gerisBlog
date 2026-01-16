@@ -24,7 +24,7 @@ export function BlogsCreate({ mode }) {
 
     const [isPending, setIsPending] = useState(false);
 
-    const { user } = useContext(UserContext);
+    const { user, userRoles, isAdmin } = useContext(UserContext);
 
     const isEditMode = mode === 'edit';
 
@@ -44,8 +44,8 @@ export function BlogsCreate({ mode }) {
             ? !values.imageUrl
             : (!(values.imageUrl instanceof FileList) && !(values.imageUrl instanceof File));
 
-        if (noImage) { 
-            return 'Снимката е задължителна!' 
+        if (noImage) {
+            return 'Снимката е задължителна!'
         };
 
         if (!values.category) {
@@ -93,10 +93,10 @@ export function BlogsCreate({ mode }) {
         }
     }
 
-    const { 
-        inputPropertiesRegister, 
-        filePropertiesRegister, 
-        setFormValues, 
+    const {
+        inputPropertiesRegister,
+        filePropertiesRegister,
+        setFormValues,
         formAction } = useForm(submitHandler, initialBlogValues);
 
     useEffect(() => {
@@ -114,7 +114,10 @@ export function BlogsCreate({ mode }) {
                     return;
                 }
 
-                if (user?._id && String(result.owner) && user._id !== String(result.owner)) {
+                const isOwner = String(user?._id) === String(result.owner);
+                const hasAccess = isOwner || isAdmin || userRoles === 'moderator';
+
+                if (!hasAccess) {
                     return navigate('/');
                 }
 

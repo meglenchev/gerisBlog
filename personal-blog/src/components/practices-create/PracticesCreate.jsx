@@ -23,7 +23,7 @@ export function PracticesCreate({ mode }) {
 
     const [isPending, setIsPending] = useState(false);
 
-    const { user } = useContext(UserContext);
+    const { user, isAdmin, userRoles } = useContext(UserContext);
 
     const isEditMode = mode === 'edit';
 
@@ -35,8 +35,8 @@ export function PracticesCreate({ mode }) {
     }), [isEditMode, practiceId]);
 
     function validate(values) {
-        if (!values.title) { 
-            return 'Заглавието е задължително!' 
+        if (!values.title) {
+            return 'Заглавието е задължително!'
         };
 
         const noImage = isEditMode
@@ -102,8 +102,8 @@ export function PracticesCreate({ mode }) {
     useEffect(() => {
         document.title = isEditMode ? 'Редактирай практика' : 'Добави практика';
 
-        if (!isEditMode) { 
-            return 
+        if (!isEditMode) {
+            return
         };
 
         const abortController = new AbortController();
@@ -113,8 +113,11 @@ export function PracticesCreate({ mode }) {
                 if (!result || Object.keys(result).length === 0) {
                     return;
                 }
-                
-                if (user?._id && result.owner && user._id !== result.owner) {
+
+                const isOwner = String(user?._id) === String(result.owner);
+                const hasAccess = isOwner || isAdmin || userRoles === 'moderator';
+
+                if (!hasAccess) {
                     return navigate('/');
                 }
                 setFormValues(result);

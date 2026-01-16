@@ -7,7 +7,7 @@ import UserContext from "../../context/UserContext.jsx";
 import { useRequest } from "../../hooks/useRequest.js";
 
 export function BlogDetails() {
-    const { user, isAuthenticated } = useContext(UserContext);
+    const { user, isAuthenticated, isAdmin } = useContext(UserContext);
 
     const { blogId } = useParams();
 
@@ -65,13 +65,12 @@ export function BlogDetails() {
                         <p>{data.content}</p>
                         <div className="post-footer">
                             <span onClick={goBackHandler} className="btn btn-back" title="Назад">Назад</span>
-                            {isAuthenticated && String(data.owner) === String(user?._id) && (
+                            {isAuthenticated && (String(data.owner) === String(user?._id) || isAdmin) && (
                                 <div className="buttons">
                                     <Link to={`/blogs/${blogId}/edit`} className="btn btn-edit">Редактирай</Link>
                                     <button onClick={deleteBlogHandler} className="btn btn-delete">Изтрий</button>
                                 </div>
-                            )
-                            }
+                            )}
                         </div>
                     </>)
                     : <p className="no-articles">Възникна грешка. Моля опитайте по-късно!</p>

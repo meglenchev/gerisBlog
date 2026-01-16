@@ -134,3 +134,5 @@
     - [x] Added 'userRoles' state to store detailed user permissions from the server
     - [x] Introduced 'isAdmin' flag for simplified role-based access control in components
     - [x] Added 'isLoading' state to manage initial session verification and prevent UI flickering
+    
+- [x] Grant administrative access to edit and delete actions
