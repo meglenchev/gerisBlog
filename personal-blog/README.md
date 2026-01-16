@@ -129,3 +129,8 @@
 
 - [x] Adding credentials: 'include' to the request hook due to the switch to HttpOnly cookies
 - [x] Changing authentication in user context due to the transition to HttpOnly cookies
+
+- [x] Expand user state with roles and loading status
+    - [x] Added 'userRoles' state to store detailed user permissions from the server
+    - [x] Introduced 'isAdmin' flag for simplified role-based access control in components
+    - [x] Added 'isLoading' state to manage initial session verification and prevent UI flickering

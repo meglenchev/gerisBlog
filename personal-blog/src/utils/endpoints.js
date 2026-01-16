@@ -5,6 +5,7 @@ export const endPoints = {
     login: '/users/login',
     register: '/users/register',
     logout: '/users/logout',
+    me: '/users/me',
     settings: '/settings',
     homeSettings: (settingsId) => `/settings/${settingsId}`,
     homeAbout: '/settings',
